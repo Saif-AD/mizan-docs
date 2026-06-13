@@ -52,7 +52,7 @@
   align-items: center;
 }
 .meal-feature + .meal-feature { margin-top: 22px; }
-.meal-feature image-slot { width: 100%; height: clamp(220px, 34vw, 300px); display: block; }
+.meal-feature img { width: 100%; height: clamp(220px, 34vw, 300px); display: block; object-fit: cover; border-radius: 16px; }
 .meal-feature .mf-body { display: grid; gap: 14px; }
 .meal-feature h3 { font-size: clamp(1.2rem, 2.8vw, 1.6rem); }
 .meal-feature .mf-why {
@@ -83,7 +83,7 @@
 .mf-stat.warn { color: var(--amber); border-color: rgba(194, 116, 28, 0.4); }
 @media (min-width: 860px) {
   .meal-feature { grid-template-columns: 1fr 1.1fr; }
-  .meal-feature.flip image-slot { order: 2; }
+  .meal-feature.flip img { order: 2; }
 }
 
 /* Partners */
@@ -128,9 +128,9 @@
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="nav-logo" href="Home.html" aria-label="Mizan home" data-logo></a>
+    <a class="nav-logo" href="index.html" aria-label="Mizan home" data-logo></a>
     <ul class="nav-links">
-      <li><a href="Home.html">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="How It Works.html">How it works</a></li>
       <li><a href="Delivery and Food.html" aria-current="page">Delivery &amp; food</a></li>
       <li><a href="#download">Get the app</a></li>
@@ -138,7 +138,7 @@
     <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <nav class="nav-drawer">
-    <a href="Home.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="How It Works.html">How it works</a>
     <a href="Delivery and Food.html">Delivery &amp; food</a>
     <a href="#download">Get the app</a>
@@ -191,7 +191,7 @@
     </div>
 
     <article class="meal-feature rv">
-      <image-slot id="food-meal-1" shape="rounded" radius="16" placeholder="Photo: grilled beef &amp; spinach bowl"></image-slot>
+      <img id="food-meal-1" src="uploads/139184-food-plate-healthy-free-photo.png" alt="Grilled beef and spinach bowl">
       <div class="mf-body">
         <h3>Grilled Beef &amp; Spinach Bowl</h3>
         <div class="mf-stats">
@@ -208,7 +208,7 @@
     </article>
 
     <article class="meal-feature flip rv">
-      <image-slot id="food-meal-2" shape="rounded" radius="16" placeholder="Photo: charred salmon &amp; freekeh"></image-slot>
+      <img id="food-meal-2" src="uploads/139180-food-plate-fish-download-hd.png" alt="Charred salmon and freekeh plate">
       <div class="mf-body">
         <h3>Charred Salmon &amp; Freekeh</h3>
         <div class="mf-stats">
@@ -225,7 +225,7 @@
     </article>
 
     <article class="meal-feature rv">
-      <image-slot id="food-meal-3" shape="rounded" radius="16" placeholder="Photo: lentil, date &amp; halloumi salad"></image-slot>
+      <img id="food-meal-3" src="uploads/139399-food-nutrition-top-view-plate.png" alt="Lentil, date and halloumi salad">
       <div class="mf-body">
         <h3>Lentil, Date &amp; Halloumi Salad</h3>
         <div class="mf-stats">
@@ -311,13 +311,13 @@
     </form>
   </div>
   <div class="wrap footer-main">
-    <a class="footer-logo" href="Home.html" aria-label="Mizan home" data-logo></a>
+    <a class="footer-logo" href="index.html" aria-label="Mizan home" data-logo></a>
     <div class="footer-right">
     <div class="footer-cols">
       <div class="footer-col">
         <h4>Pages</h4>
         <ul>
-          <li><a href="Home.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="How It Works.html">How it works</a></li>
           <li><a href="Delivery and Food.html">Delivery &amp; food</a></li>
           <li><a href="#download">Get the app</a></li>
