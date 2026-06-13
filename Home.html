@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mizan — Nutrition tuned to your bloodwork</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/mizan.css">
+<link rel="stylesheet" href="assets/demo.css">
+<style>
+/* ---------- Home-specific ---------- */
+
+/* Edge-to-edge teal top: nav + hero share one background; logo/links align with the frame */
+body { --page-inset: clamp(12px, 1.8vw, 22px); }
+.nav { background: var(--teal); }
+.nav.scrolled { box-shadow: 0 8px 24px rgba(9, 30, 40, 0.25); }
+.nav-inner { max-width: none; padding-left: var(--page-inset); padding-right: var(--page-inset); }
+.nav-logo { color: var(--cream); }
+.nav-links a { color: var(--cream); }
+.nav-links a::after { background: var(--cream); }
+.nav-cta { background: var(--cream); color: var(--teal-deep); }
+.nav-cta:hover { background: var(--cream-card); }
+.nav-burger span { background: var(--cream); }
+.nav-drawer { background: var(--teal); }
+.nav-drawer a { color: var(--cream); border-bottom-color: rgba(255, 244, 231, 0.2); }
+
+/* Hero — teal to the edges, rounded image frame inset in the middle, copy over it */
+.hero-band {
+  background: var(--teal);
+  padding: 6px var(--page-inset) var(--page-inset);
+}
+.hero-frame {
+  position: relative;
+  border-radius: var(--rad-lg);
+  overflow: hidden;
+  background: var(--teal-soft);
+  min-height: clamp(540px, 86vh, 840px);
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(20px, 3.5vw, 44px);
+}
+.hero-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(9, 46, 58, 0.55), rgba(9, 46, 58, 0) 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-bg { position: absolute; inset: 0; }
+.hero-bg image-slot { display: block; width: 100%; height: 100%; }
+.hero-bg-note { position: absolute; top: 20px; right: 20px; pointer-events: none; z-index: 2; }
+.hero-copy { position: relative; z-index: 2; display: grid; gap: 12px; justify-items: start; max-width: 600px; }
+.hero-copy .h-hero {
+  color: #fff;
+  font-size: clamp(1.8rem, 3.6vw, 2.9rem);
+  line-height: 1.02;
+  max-width: 21ch;
+}
+.hero-copy .lede { max-width: 560px; font-size: clamp(1.05rem, 2vw, 1.3rem); opacity: 0.95; color: #fff; }
+.hero-ctas { display: grid; gap: 10px; justify-items: start; margin-top: 8px; }
+
+/* Why band — Plately-style: WHY + big logo centered, plate marquee overlapping, copy below */
+.why-band { overflow: hidden; padding-top: clamp(24px, 3.5vw, 44px); padding-bottom: clamp(40px, 6vw, 72px); }
+.why-mast { display: grid; justify-items: center; gap: clamp(6px, 1.2vw, 14px); padding: 0 24px; text-align: center; }
+.why-mast .why-word {
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--teal);
+  font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.why-mast .why-logo { display: block; color: var(--teal); }
+.why-mast .why-logo svg { display: block; width: min(880px, 78vw); height: auto; }
+
+.plate-marquee {
+  position: relative;
+  z-index: 2;
+  margin-top: calc(clamp(42px, 4vw, 56px) * -1);
+  padding: 24px 0 48px;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.plate-track { display: flex; width: max-content; }
+.plate-track img {
+  height: clamp(170px, 24vw, 320px);
+  width: auto;
+  flex: none;
+  margin-right: clamp(28px, 4.5vw, 64px);
+  filter: drop-shadow(0 12px 16px rgba(9, 46, 58, 0.15));
+}
+@media (prefers-reduced-motion: no-preference) {
+  .plate-track { animation: plates-scroll 55s linear infinite; }
+  @keyframes plates-scroll { to { transform: translateX(-50%); } }
+}
+
+.why-below {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  text-align: center;
+  padding: 0 24px;
+  margin-top: clamp(12px, 2.5vw, 24px);
+}
+.why-below .why-display { color: var(--teal); font-size: clamp(1.7rem, 3.6vw, 2.6rem); line-height: 1.02; max-width: 18ch; }
+.why-below .lede { max-width: 560px; }
+
+/* Steps */
+.steps-bleed { padding: 0 clamp(12px, 1.2vw, 22px); }
+.steps { display: grid; gap: clamp(14px, 1.4vw, 22px); }
+@media (min-width: 760px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+.step {
+  background: #fffdf9;
+  border-radius: var(--rad-md);
+  padding: clamp(24px, 2vw, 36px) clamp(22px, 1.9vw, 34px) clamp(28px, 2.3vw, 40px);
+  min-height: clamp(380px, 30vw, 520px);
+  display: grid;
+  grid-template-rows: 1fr auto auto auto;
+  gap: 12px;
+  justify-items: start;
+  text-align: left;
+  position: relative;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s ease;
+}
+.step:hover { transform: translateY(-4px); }
+.step-art {
+  place-self: center;
+  width: min(78%, 240px);
+  height: clamp(160px, 13vw, 230px);
+  display: block;
+}
+.step-tag {
+  width: clamp(44px, 3.2vw, 56px);
+  height: clamp(44px, 3.2vw, 56px);
+  border-radius: 50%;
+  background: var(--teal);
+  color: var(--cream);
+  display: grid;
+  place-items: center;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 3.1vw, 3.1rem);
+  line-height: 0;
+  rotate: -8deg;
+  margin-bottom: -7px;
+}
+.step h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 2.3vw, 2.625rem);
+  line-height: 1;
+  color: var(--teal);
+}
+.step p { font-size: clamp(0.92rem, 1vw, 1.05rem); opacity: 0.85; line-height: 1.35; letter-spacing: -0.4px; }
+
+/* Delivery showcase */
+.partners { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 36px; }
+.partners .ph { width: 132px; height: 56px; padding: 8px; }
+.coverage-line { display: flex; align-items: center; gap: 12px; margin-top: 30px; font-weight: 600; color: var(--teal-deep); }
+.coverage-line .pulse-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--teal); position: relative; flex: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .coverage-line .pulse-dot::after {
+    content: ""; position: absolute; inset: -6px; border-radius: 50%;
+    border: 2px solid var(--teal); animation: pulse 2s ease-out infinite;
+  }
+  @keyframes pulse { from { transform: scale(0.5); opacity: 1; } to { transform: scale(1.4); opacity: 0; } }
+}
+
+/* Trust band */
+.trust-grid { display: grid; gap: 28px; padding: clamp(48px, 7vw, 84px) clamp(24px, 5vw, 72px); }
+.trust-head { display: grid; gap: 14px; max-width: 520px; }
+.trust-points { display: grid; gap: 18px; }
+.trust-point { display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start; }
+.trust-point .tp-mark {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 2px solid var(--cream);
+  display: grid; place-items: center;
+  font-weight: 700;
+  flex: none;
+}
+.trust-point strong { display: block; font-size: 1rem; margin-bottom: 3px; }
+.trust-point p { font-size: 0.88rem; opacity: 0.85; }
+@media (min-width: 900px) {
+  .trust-grid { grid-template-columns: 1fr 1.1fr; align-items: center; }
+}
+
+/* Feature rows — groceries + integrations */
+.feat-row { display: grid; gap: 28px; align-items: center; }
+.feat-row + .feat-row { margin-top: clamp(40px, 6vw, 80px); }
+@media (min-width: 900px) {
+  .feat-row { grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); }
+  .feat-row.flip .feat-art { order: -1; }
+}
+.feat-copy { display: grid; gap: 14px; justify-items: start; }
+.feat-copy h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
+.feat-copy p { font-size: 0.95rem; opacity: 0.85; max-width: 460px; }
+.feat-card {
+  background: var(--cream-card);
+  border-radius: var(--rad-md);
+  box-shadow: var(--shadow-card);
+  padding: clamp(20px, 3vw, 28px);
+  display: grid;
+  gap: 14px;
+}
+.feat-card .fc-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.feat-card .fc-head strong { font-size: 0.95rem; }
+.feat-card .fc-head span { font-size: 0.74rem; opacity: 0.6; }
+.gro-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.gro-chips .chip { font-size: 0.78rem; padding: 5px 13px; }
+.feat-card hr { border: none; border-top: 1.5px solid rgba(9, 46, 58, 0.1); margin: 2px 0; }
+.fc-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal-deep); }
+.gro-meal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: var(--teal-soft);
+  border-radius: var(--rad-sm);
+  padding: 12px 16px;
+}
+.gro-meal strong { font-size: 0.88rem; }
+.gro-meal span { font-size: 0.74rem; font-weight: 600; color: var(--teal-deep); white-space: nowrap; }
+.sync-row { display: flex; align-items: center; gap: 14px; }
+.sync-row .ph { width: 110px; height: 44px; padding: 6px; flex: none; }
+.sync-row .sync-arrow { font-weight: 700; color: var(--teal); font-size: 1.2rem; flex: none; }
+.sync-row .sync-mizan {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  background: var(--teal);
+  color: var(--cream);
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+.sync-row .sync-mizan svg { height: 16px; width: auto; display: block; }
+.sync-note { font-size: 0.82rem; opacity: 0.8; }
+.sync-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(46, 125, 79, 0.12);
+  color: var(--green);
+  font-size: 0.76rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 5px 13px;
+  width: fit-content;
+}
+
+/* Pricing */
+.tiers { display: grid; gap: 18px; margin-bottom: 48px; }
+@media (min-width: 800px) { .tiers { grid-template-columns: repeat(3, 1fr); } }
+.tier {
+  background: var(--cream-card);
+  border: 1.5px solid rgba(9,46,58,0.1);
+  border-radius: var(--rad-md);
+  padding: 30px 26px;
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.tier:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+.tier.featured { background: var(--teal); color: var(--cream); border-color: var(--teal); box-shadow: var(--shadow-pop); }
+.tier .tier-name { font-family: var(--display); font-size: 1.1rem; }
+.tier .tier-price { font-family: var(--display); font-size: 2rem; }
+.tier .tier-price small { font-family: var(--body); font-size: 0.8rem; font-weight: 500; opacity: 0.7; }
+.tier ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; font-size: 0.88rem; }
+.tier ul li { display: flex; gap: 10px; align-items: baseline; }
+.tier ul li::before { content: "•"; color: var(--teal); font-weight: 700; }
+.tier.featured ul li::before { color: var(--cream); }
+.tier-flag {
+  position: absolute; top: -12px; right: 20px;
+  background: var(--cream-tint); color: var(--teal-deep);
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  border-radius: 999px; padding: 5px 12px;
+}
+</style>
+</head>
+<body data-screen-label="Home">
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-logo" href="Home.html" aria-label="Mizan home" data-logo></a>
+    <ul class="nav-links">
+      <li><a href="Home.html" aria-current="page">Home</a></li>
+      <li><a href="How It Works.html">How it works</a></li>
+      <li><a href="Delivery and Food.html">Delivery &amp; food</a></li>
+      <li><a href="#download">Get The App</a></li>
+    </ul>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="nav-drawer">
+    <a href="Home.html">Home</a>
+    <a href="How It Works.html">How it works</a>
+    <a href="Delivery and Food.html">Delivery &amp; food</a>
+    <a href="#download">Get the app</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero-band" data-screen-label="Hero">
+  <div class="hero-frame">
+    <div class="hero-bg">
+      <image-slot id="hero-bg" fit="cover" shape="rect" placeholder="Hero background — drop your generated image here"></image-slot>
+      <span class="placeholder-note hero-bg-note">placeholder — hero image coming</span>
+    </div>
+    <div class="hero-copy">
+      <h1 class="h-hero" style="font-size: 90px; letter-spacing: -1px; line-height: 0.9; width: 613px">Nutrition tuned to your bloodwork. 
+Delivered to your door.</h1>
+      <p class="lede" style="width: 508px">Daily targets built from your actual bloodwork — and the food that fills the gaps, delivered.</p>
+      <div class="hero-ctas">
+        <div class="badges">
+          <a class="badge-store on-teal" href="#download" style="border-radius: 230px; width: 195px"><span class="glyph">A</span><span><small>Coming soon on the</small><strong>App Store</strong></span></a>
+          <a class="badge-store on-teal" href="#download" style="border-radius: 250px; width: 195px"><span class="glyph">G</span><span><small>Coming soon on</small><strong>Google Play</strong></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE WHY ============ -->
+<section class="section band tint why-band" style="padding-left: 0; padding-right: 0; margin-top: 12px; height: 918px" data-screen-label="The why">
+  <div class="why-mast rv">
+    <p class="why-word" style="letter-spacing: 1.1px; height: 36px; padding: 0px">Why</p>
+    <span class="why-logo" aria-label="Mizan">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 977.12 290.55" fill="currentColor" role="img" aria-hidden="true" style="height: 264px;">
+        <path d="M0,.76h116.86s16.58,132.66,16.58,132.66L151.61.76h116.07c-6.48,96.6-6.48,193.19,0,289.79h-89.23s0-74.22,0-74.22l-18.95,74.22h-50.54l-20.53-76.59v76.59H0C8.09,194.16,8.09,97.56,0,.76Z"></path>
+        <path d="M367.25.76h-89.62c-6.48,96.8-6.48,193.4,0,289.79h89.62c6.48-98.35,6.48-194.94,0-289.79Z"></path>
+        <path d="M574.22,290.55c1.45-34.16,3.97-68.86,7.31-103.97h-87.22s97.74-91.1,97.74-91.1c4.1-29.96,9.25-61.67,15.2-94.71h-232.14c2.85,25.07,4.74,58.2,5.44,101.3h92.21s-92.38,86.91-92.38,86.91c-.65,44.16-2.17,80.85-5.27,101.58h199.11Z"></path>
+        <path d="M784.49,290.55c-3.81-94.35-15.59-191.13-33.5-289.79h-133.63c-19.25,96.66-30.82,193.26-34.67,289.79h91.16v-66.12h19.09v66.12h91.55ZM677.74,169.56l2.73-55.35h5.85l3.12,55.35h-11.69Z" style="opacity: 1"></path>
+        <path d="M760.04.76c17.34,96.14,29.52,192.74,32.83,289.79h70.83s-6.63-115.16-6.63-115.16l35.86,115.16h84.19C971.74,193.45,971.74,97.11,977.12,0h-88.87s4.29,118.16,4.29,118.16L855.9.76h-95.86Z"></path>
+      </svg>
+    </span>
+  </div>
+  <div class="plate-marquee rv rv-d1" aria-hidden="true">
+    <div class="plate-track">
+      <img src="uploads/139178-food-plate-diet-free-transparent-image-hd.png" alt="">
+      <img src="uploads/139184-food-plate-healthy-free-photo.png" alt="">
+      <img src="uploads/139180-food-plate-fish-download-hd.png" alt="">
+      <img src="uploads/139206-food-plate-top-snack-view.png" alt="">
+      <img src="uploads/139065-food-plate-fish-free-download-png-hq.png" alt="">
+      <img src="uploads/139192-food-plate-top-cake-view.png" alt="">
+      <img src="uploads/139178-food-plate-diet-free-transparent-image-hd.png" alt="">
+      <img src="uploads/139184-food-plate-healthy-free-photo.png" alt="">
+      <img src="uploads/139180-food-plate-fish-download-hd.png" alt="">
+      <img src="uploads/139206-food-plate-top-snack-view.png" alt="">
+      <img src="uploads/139065-food-plate-fish-free-download-png-hq.png" alt="">
+      <img src="uploads/139192-food-plate-top-cake-view.png" alt="">
+    </div>
+  </div>
+  <div class="why-below rv rv-d2" style="margin: -16px 0px 0px">
+    <h2 class="why-display" style="text-transform: uppercase; font-weight: 700; white-space: nowrap; max-width: none; font-size: 66px">We <span style="text-decoration: underline; text-underline-offset: 0.12em; text-decoration-thickness: 0.06em;">measure</span> instead of assume.</h2>
+    <p class="lede" style="letter-spacing: -1.2px; width: 643px; line-height: 1.05; height: 54px; padding: 0px; margin: -4px 0px 0px; font-size: 26px">Generic apps give everyone the same targets.
+Your bloodwork says otherwise.</p>
+    <a class="btn-ghost" href="How It Works.html">Learn how Mizan reads your bloodwork</a>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section" style="padding-top: clamp(48px, 6vw, 90px); height: 715px; padding: 40px 0px 92px" data-screen-label="How it works">
+  <div class="steps-bleed">
+    <div class="section-head rv" style="max-width: none; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap;">
+      <div style="display: grid; gap: 10px;">
+        <p class="kicker" style="font-size: 1.2rem; height: 13px; letter-spacing: -0.5px; font-weight: 800; padding: 1px 0px 0px; text-transform: none;">How it works</p>
+        <h2 class="h-sect" style="font-size: clamp(2.2rem, 3.6vw, 3.4rem);">From a blood test to a full plate, in four steps.</h2>
+      </div>
+      <a class="btn-ghost" href="How It Works.html">Read the science behind it</a>
+    </div>
+  </div>
+  <div class="steps-bleed">
+    <div class="steps">
+      <div class="step rv">
+        <image-slot id="step-art-1" class="step-art" shape="rect" placeholder="food photo"></image-slot>
+        <span class="step-tag">1</span>
+        <h3 style="letter-spacing: -0.4px;">Connect your bloodwork</h3>
+        <p style="width: 449px; height: 36px">Link verified results through our secured UAE government integration — no PDFs, no typing.</p>
+      </div>
+      <div class="step rv rv-d1">
+        <image-slot id="step-art-2" class="step-art" shape="rect" placeholder="food photo"></image-slot>
+        <span class="step-tag">2</span>
+        <h3>Get personalized targets</h3>
+        <p style="height: 35px">Your daily macro and micro goals, built from your markers — not a population average.</p>
+      </div>
+      <div class="step rv rv-d2">
+        <image-slot id="step-art-3" class="step-art" shape="rect" placeholder="food photo"></image-slot>
+        <span class="step-tag">3</span>
+        <h3>See live recommendations</h3>
+        <p style="height: 35px">Meals scored against what your body is missing today, updated as you eat.</p>
+      </div>
+      <div class="step rv rv-d3">
+        <image-slot id="step-art-4" class="step-art" shape="rect" placeholder="food photo"></image-slot>
+        <span class="step-tag">4</span>
+        <h3>Order delivery</h3>
+        <p style="height: 35px">The food that closes your gaps, delivered by Mizan across the UAE.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERACTIVE DEMO ============ -->
+<section class="section" id="demo" style="padding-top: 0;" data-screen-label="Interactive demo">
+  <div class="steps-bleed">
+    <div id="demo-root" class="rv"></div>
+  </div>
+</section>
+
+<!-- ============ GROCERIES + INTEGRATIONS ============ -->
+<section class="section" style="padding-top: 0;" data-screen-label="Groceries and integrations">
+  <div class="wrap">
+    <div class="feat-row">
+      <div class="feat-copy rv">
+        <p class="kicker">Your groceries</p>
+        <h3>Buy the groceries. We'll find the meals.</h3>
+        <p>Add the week's shop to Mizan and it works out the best meals you can make with what's already in your kitchen — ranked by how well each one closes your gaps. Less waste, no "what's for dinner".</p>
+      </div>
+      <div class="feat-art rv rv-d1">
+        <div class="feat-card">
+          <div class="fc-head"><strong>This week's groceries</strong><span>14 items</span></div>
+          <div class="gro-chips">
+            <span class="chip">Spinach</span>
+            <span class="chip">Salmon</span>
+            <span class="chip">Eggs</span>
+            <span class="chip">Freekeh</span>
+            <span class="chip">Chickpeas</span>
+            <span class="chip">Dates</span>
+            <span class="chip">Labneh</span>
+            <span class="chip">Peppers</span>
+          </div>
+          <hr>
+          <span class="fc-label">Best meals from your kitchen</span>
+          <div class="gro-meal"><strong>Salmon, freekeh &amp; greens</strong><span>Uses 5 items · Vit D +55%</span></div>
+          <div class="gro-meal"><strong>Chickpea &amp; spinach shakshuka</strong><span>Uses 4 items · Iron +28%</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="feat-row flip">
+      <div class="feat-copy rv">
+        <p class="kicker">Integrations</p>
+        <h3>Works with the trackers you already use.</h3>
+        <p>Already logging in MyFitnessPal or another calorie tracker? Connect it once and your meals flow straight into Mizan — every entry counts toward your bloodwork-based targets, with no double logging.</p>
+        <span class="placeholder-note">placeholder — final integration list to be confirmed</span>
+      </div>
+      <div class="feat-art rv rv-d1">
+        <div class="feat-card">
+          <div class="sync-row">
+            <div class="ph"><code>tracker logo</code></div>
+            <span class="sync-arrow">⇄</span>
+            <span class="sync-mizan" data-logo></span>
+          </div>
+          <span class="sync-badge">● Connected · syncing both ways</span>
+          <p class="sync-note">Lunch logged at 1:24pm in your tracker → Mizan updates today's protein, iron and vitamin D instantly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DELIVERY SHOWCASE ============ -->
+<section class="section band tint" style="padding-left: 0; padding-right: 0;" data-screen-label="Delivery showcase">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">Real food, not supplements</p>
+      <h2 class="h-sect">Every meal earns its place on your plate.</h2>
+      <p class="lede muted">A taste of what Mizan delivers — each dish annotated with the gaps it closes.</p>
+    </div>
+    <div class="grid-3">
+      <article class="meal-card rv">
+        <div class="meal-art"><image-slot id="home-meal-1" shape="rounded" radius="12" placeholder="Photo: beef & spinach bowl"></image-slot></div>
+        <div class="meal-body">
+          <h3 class="h-card">Grilled Beef &amp; Spinach Bowl</h3>
+          <p>High in heme iron, paired with vitamin-C-rich peppers for absorption.</p>
+          <div class="meal-tags"><span class="meal-tag">Iron 8mg</span><span class="meal-tag">Protein 42g</span><span class="meal-tag">Vit C 60mg</span></div>
+        </div>
+      </article>
+      <article class="meal-card alt rv rv-d1">
+        <div class="meal-art"><image-slot id="home-meal-2" shape="rounded" radius="12" placeholder="Photo: salmon & grain plate"></image-slot></div>
+        <div class="meal-body">
+          <h3 class="h-card">Charred Salmon &amp; Freekeh</h3>
+          <p>Omega-3s and vitamin D in one plate — the two gaps we see most in the UAE.</p>
+          <div class="meal-tags"><span class="meal-tag">Vit D 12µg</span><span class="meal-tag">Omega-3 1.8g</span><span class="meal-tag">Protein 38g</span></div>
+        </div>
+      </article>
+      <article class="meal-card rv rv-d2">
+        <div class="meal-art"><image-slot id="home-meal-3" shape="rounded" radius="12" placeholder="Photo: lentil & halloumi salad"></image-slot></div>
+        <div class="meal-body">
+          <h3 class="h-card">Lentil, Date &amp; Halloumi Salad</h3>
+          <p>Plant iron, folate and calcium — built for plant-forward days.</p>
+          <div class="meal-tags"><span class="meal-tag">Folate 180µg</span><span class="meal-tag">Calcium 320mg</span><span class="meal-tag">Fibre 11g</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="partners rv">
+      <span class="placeholder-note">placeholder — partner logos to come</span>
+      <div class="ph"><code>partner logo</code></div>
+      <div class="ph"><code>partner logo</code></div>
+      <div class="ph"><code>partner logo</code></div>
+      <div class="ph"><code>partner logo</code></div>
+    </div>
+    <div class="coverage-line rv"><span class="pulse-dot"></span>Now delivering across the UAE.</div>
+  </div>
+</section>
+
+<!-- ============ TRUST & SECURITY ============ -->
+<section class="section" style="padding-bottom: 0;" data-screen-label="Trust and security">
+  <div class="band ink">
+    <div class="trust-grid">
+      <div class="trust-head rv">
+        <p class="kicker" style="color: var(--teal-soft);">Trust &amp; security</p>
+        <h2 class="h-band">Your health data is yours.</h2>
+        <p class="lede" style="opacity: 0.85;">Bloodwork is among the most personal data there is. We treat it that way.</p>
+      </div>
+      <div class="trust-points">
+        <div class="trust-point rv">
+          <span class="tp-mark">🔒</span>
+          <div><strong>Bank-level encryption</strong><p>Your results are encrypted in transit and at rest — the same standard your bank uses.</p></div>
+        </div>
+        <div class="trust-point rv rv-d1">
+          <span class="tp-mark">✕</span>
+          <div><strong>Never sold to advertisers</strong><p>Your data funds your nutrition, not someone's ad campaign. No exceptions.</p></div>
+        </div>
+        <div class="trust-point rv rv-d2">
+          <span class="tp-mark">✓</span>
+          <div><strong>Secured UAE government integration</strong><p>Verified results come straight from the source — we never see your credentials.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="band teal" id="download" data-screen-label="Download CTA">
+  <div class="cta-final">
+    <p class="kicker" style="color: var(--teal-soft);">Pre-launch</p>
+    <h2 class="h-band" style="max-width: 720px;">Stop guessing. Start measuring.</h2>
+    <p class="lede" style="opacity: 0.9; max-width: 520px;">Be first to get nutrition built from your own bloodwork — launching soon across the UAE.</p>
+    <div class="badges">
+      <a class="badge-store on-teal" href="#download"><span class="glyph">A</span><span><small>Coming soon on the</small><strong>App Store</strong></span></a>
+      <a class="badge-store on-teal" href="#download"><span class="glyph">G</span><span><small>Coming soon on</small><strong>Google Play</strong></span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer-waitlist">
+    <div class="fw-copy">
+      <h3 style="font-size: 100px; height: 94px; margin: -11px 0px 0px; width: 553px">JOIN THE WAITLIST</h3>
+      <p style="letter-spacing: -1.2px; font-size: 21px; height: 24px">Be first in line when Mizan launches across the UAE.</p>
+    </div>
+    <form class="waitlist-form">
+      <input type="email" placeholder="you@example.com" aria-label="Email" required>
+      <button type="submit">Join the waitlist</button>
+    </form>
+  </div>
+  <div class="wrap footer-main">
+    <a class="footer-logo" href="Home.html" aria-label="Mizan home" data-logo></a>
+    <div class="footer-right">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="How It Works.html">How it works</a></li>
+          <li><a href="Delivery and Food.html">Delivery &amp; food</a></li>
+          <li><a href="#download">Get the app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="#terms">Terms</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Social</h4>
+        <ul>
+          <li><a href="#instagram">Instagram</a></li>
+          <li><a href="#tiktok">TikTok</a></li>
+          <li><a href="#x">X</a></li>
+        </ul>
+      </div>
+    </div>
+    <span class="footer-ar">ميزان</span>
+    </div>
+  </div>
+  <div class="wrap footer-meta">
+    <span style="height: 17px">© 2026 Mizan. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="assets/image-slot.js"></script>
+<script src="assets/shared.js"></script>
+<script src="assets/demo.js"></script>
+</body>
+</html>

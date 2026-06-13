@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mizan — How it works &amp; the science</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/mizan.css">
+<style>
+/* Page header */
+.page-hero { padding: clamp(48px, 8vw, 96px) clamp(24px, 5vw, 72px); display: grid; gap: 18px; }
+.page-hero .h-hero { color: var(--cream); max-width: 800px; }
+.page-hero .lede { max-width: 560px; opacity: 0.9; }
+
+/* Loop expanded */
+.loop-list { display: grid; gap: 18px; counter-reset: loop; }
+.loop-item {
+  display: grid;
+  gap: 18px;
+  background: var(--cream-card);
+  border-radius: var(--rad-md);
+  box-shadow: var(--shadow-card);
+  padding: clamp(24px, 4vw, 40px);
+  transition: transform 0.25s ease;
+}
+.loop-item:hover { transform: translateY(-3px); }
+.loop-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: var(--cream);
+  display: grid;
+  place-items: center;
+  font-family: var(--display);
+  font-size: 1.3rem;
+  flex: none;
+}
+.loop-item h3 { font-size: clamp(1.15rem, 2.6vw, 1.5rem); margin-bottom: 10px; }
+.loop-item p { font-size: 0.95rem; opacity: 0.85; max-width: 640px; }
+@media (min-width: 760px) {
+  .loop-item { grid-template-columns: 56px 1fr; align-items: start; }
+}
+
+/* Marker mapping table */
+.marker-map { display: grid; gap: 12px; }
+.marker-row {
+  display: grid;
+  gap: 8px;
+  background: var(--cream-card);
+  border: 1.5px solid rgba(9,46,58,0.1);
+  border-radius: var(--rad-sm);
+  padding: 18px 22px;
+  align-items: center;
+}
+.marker-row .mk-from { font-weight: 700; font-size: 0.95rem; }
+.marker-row .mk-arrow { font-family: var(--display); color: var(--teal); }
+.marker-row .mk-to { font-size: 0.88rem; opacity: 0.85; }
+@media (min-width: 760px) {
+  .marker-row { grid-template-columns: 220px 32px 1fr; }
+}
+
+/* Gov integration: do / don't */
+.gov-grid { display: grid; gap: 18px; }
+@media (min-width: 800px) { .gov-grid { grid-template-columns: 1fr 1fr; } }
+.gov-card {
+  border-radius: var(--rad-md);
+  padding: clamp(22px, 4vw, 32px);
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+.gov-card.does { background: var(--teal); color: var(--cream); }
+.gov-card.doesnt { background: var(--cream-card); border: 1.5px solid rgba(9,46,58,0.12); }
+.gov-card h3 { font-size: 1.1rem; }
+.gov-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; font-size: 0.9rem; }
+.gov-card ul li { display: flex; gap: 11px; align-items: baseline; }
+.gov-card.does ul li::before { content: "✓"; font-weight: 700; flex: none; }
+.gov-card.doesnt ul li::before { content: "✕"; font-weight: 700; color: var(--amber); flex: none; }
+
+/* Privacy */
+.privacy-grid { display: grid; gap: 18px; }
+@media (min-width: 800px) { .privacy-grid { grid-template-columns: repeat(3, 1fr); } }
+.privacy-card {
+  background: var(--cream-card);
+  border-radius: var(--rad-md);
+  box-shadow: var(--shadow-card);
+  padding: 26px 24px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+.privacy-card .pv-mark {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--teal-soft);
+  color: var(--teal-deep);
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.privacy-card h3 { font-size: 1rem; }
+.privacy-card p { font-size: 0.87rem; opacity: 0.8; }
+</style>
+</head>
+<body data-screen-label="How it works">
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-logo" href="Home.html" aria-label="Mizan home" data-logo></a>
+    <ul class="nav-links">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="How It Works.html" aria-current="page">How it works</a></li>
+      <li><a href="Delivery and Food.html">Delivery &amp; food</a></li>
+      <li><a href="#download">Get the app</a></li>
+    </ul>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="nav-drawer">
+    <a href="Home.html">Home</a>
+    <a href="How It Works.html">How it works</a>
+    <a href="Delivery and Food.html">Delivery &amp; food</a>
+    <a href="#download">Get the app</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="band teal" style="margin-top: 8px;" data-screen-label="Page hero">
+  <div class="page-hero">
+    <p class="kicker" style="color: var(--teal-soft);">How it works &amp; the science</p>
+    <h1 class="h-hero">No guesswork. Just your numbers, working for you.</h1>
+    <p class="lede">How Mizan turns a blood test into daily targets, recommendations, and a meal at your door.</p>
+  </div>
+</section>
+
+<!-- ============ THE LOOP, EXPANDED ============ -->
+<section class="section" data-screen-label="The loop expanded">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">The loop</p>
+      <h2 class="h-sect">Four steps, one continuous cycle.</h2>
+    </div>
+    <div class="loop-list">
+      <div class="loop-item rv">
+        <span class="loop-num">1</span>
+        <div>
+          <h3>Connect your bloodwork</h3>
+          <p>Link your verified lab results through our secured UAE government integration, or upload results from your clinic. Mizan reads the markers that matter for nutrition — iron studies, vitamin D, B12, folate, lipids and more — directly from the source, so there's no typing and no transcription errors. A test from the last 12 months is enough to start.</p>
+        </div>
+      </div>
+      <div class="loop-item rv">
+        <span class="loop-num">2</span>
+        <div>
+          <h3>Get personalized targets</h3>
+          <p>Generic guidelines assume an average body. Yours isn't average. Mizan converts each marker into a daily intake target: low ferritin raises your iron goal, low 25(OH)D raises vitamin D, your training load and body composition shape protein. The result is a daily plan of macros and micros that belongs to exactly one person — you.</p>
+        </div>
+      </div>
+      <div class="loop-item rv">
+        <span class="loop-num">3</span>
+        <div>
+          <h3>See live recommendations</h3>
+          <p>As you log meals, Mizan tracks what's still missing today and scores real dishes against your shortfall. It doesn't just say "eat more iron" — it shows the beef and spinach bowl that closes the gap, and pairs it with vitamin C so your body actually absorbs it. Recommendations update with every meal you eat.</p>
+        </div>
+      </div>
+      <div class="loop-item rv">
+        <span class="loop-num">4</span>
+        <div>
+          <h3>Order delivery</h3>
+          <p>Every recommendation is a real dish from our kitchen and partner restaurants, delivered by Mizan across the UAE. Tap to order, and the nutrients are logged automatically when it arrives. The loop closes: your next blood test shows the difference, and your targets adjust again.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOODWORK TO TARGETS ============ -->
+<section class="section band tint" style="padding-left: 0; padding-right: 0;" data-screen-label="Bloodwork to targets">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">From bloodwork to targets</p>
+      <h2 class="h-sect">How a marker becomes a meal.</h2>
+      <p class="lede muted">A few examples of how your results translate into daily goals.</p>
+      <span class="placeholder-note">placeholder — exact thresholds under clinical review</span>
+    </div>
+    <div class="marker-map">
+      <div class="marker-row rv">
+        <span class="mk-from">Ferritin &amp; haemoglobin</span>
+        <span class="mk-arrow">→</span>
+        <span class="mk-to">Low ferritin raises your daily iron target and prioritizes heme-iron dishes, paired with vitamin C for absorption.</span>
+      </div>
+      <div class="marker-row rv">
+        <span class="mk-from">25(OH) vitamin D</span>
+        <span class="mk-arrow">→</span>
+        <span class="mk-to">Below-range vitamin D raises your daily D target and weights oily fish, eggs and fortified foods in your recommendations.</span>
+      </div>
+      <div class="marker-row rv">
+        <span class="mk-from">B12 &amp; folate</span>
+        <span class="mk-arrow">→</span>
+        <span class="mk-to">Borderline B12 — common with plant-forward diets — lifts your B12 goal and surfaces the foods that cover it.</span>
+      </div>
+      <div class="marker-row rv">
+        <span class="mk-from">Lipid profile</span>
+        <span class="mk-arrow">→</span>
+        <span class="mk-to">Your cholesterol pattern shapes the balance of fats in your plan — more omega-3s, fewer saturated-fat-heavy dishes.</span>
+      </div>
+      <div class="marker-row rv">
+        <span class="mk-from">HbA1c &amp; fasting glucose</span>
+        <span class="mk-arrow">→</span>
+        <span class="mk-to">Trending glucose markers shift your carbohydrate targets toward higher-fibre, slower-release sources.</span>
+      </div>
+    </div>
+    <p class="rv" style="margin-top: 24px; font-size: 0.85rem; opacity: 0.7; max-width: 640px;">Mizan supports your nutrition decisions — it doesn't diagnose or treat. Out-of-range results always come with a prompt to speak to your doctor.</p>
+  </div>
+</section>
+
+<!-- ============ UAE GOVERNMENT INTEGRATION ============ -->
+<section class="section" data-screen-label="Government integration">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">The UAE government integration</p>
+      <h2 class="h-sect">Verified at the source. Limited by design.</h2>
+      <p class="lede muted">Mizan connects to the UAE's secured health-data platform so your results arrive verified — exactly as the lab reported them.</p>
+      <span class="placeholder-note">placeholder — integration specifics being finalized</span>
+    </div>
+    <div class="gov-grid">
+      <div class="gov-card does rv">
+        <h3 class="h-card">What it does</h3>
+        <ul>
+          <li>Retrieves your lab results, with your explicit consent, each time you ask it to.</li>
+          <li>Verifies results came from an accredited UAE laboratory.</li>
+          <li>Confirms your identity through the official UAE Pass flow — you log in with them, not with us.</li>
+        </ul>
+      </div>
+      <div class="gov-card doesnt rv rv-d1">
+        <h3 class="h-card">What it never accesses</h3>
+        <ul>
+          <li>Your medical history, diagnoses, prescriptions or visit notes.</li>
+          <li>Your Emirates ID credentials — we never see your login.</li>
+          <li>Anything without a fresh, revocable consent from you.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIVACY IN DEPTH ============ -->
+<section class="section" style="padding-top: 0;" data-screen-label="Privacy in depth">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">Privacy in depth</p>
+      <h2 class="h-sect">Stored like it matters. Because it does.</h2>
+    </div>
+    <div class="privacy-grid">
+      <div class="privacy-card rv">
+        <span class="pv-mark">🔒</span>
+        <h3>Encrypted, twice</h3>
+        <p>Results are encrypted in transit (TLS 1.3) and at rest (AES-256) — the same standards used in banking. Bloodwork values are stored separately from your identity.</p>
+      </div>
+      <div class="privacy-card rv rv-d1">
+        <span class="pv-mark">⏻</span>
+        <h3>You hold the switch</h3>
+        <p>Consent is granular and revocable. Disconnect the government integration, delete a test, or erase your account and all health data — each takes one tap, and deletion is permanent.</p>
+      </div>
+      <div class="privacy-card rv rv-d2">
+        <span class="pv-mark">✕</span>
+        <h3>Never sold, never shared</h3>
+        <p>Your data is never sold to advertisers or shared with insurers or employers. Aggregated, anonymized statistics only ever leave with your separate opt-in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="band teal" id="download" data-screen-label="Download CTA">
+  <div class="cta-final">
+    <p class="kicker" style="color: var(--teal-soft);">Pre-launch</p>
+    <h2 class="h-band" style="max-width: 720px;">Your bloodwork already knows what to eat.</h2>
+    <p class="lede" style="opacity: 0.9; max-width: 520px;">Download Mizan and turn your next blood test into your best week of eating.</p>
+    <div class="badges">
+      <a class="badge-store on-teal" href="#download"><span class="glyph">A</span><span><small>Coming soon on the</small><strong>App Store</strong></span></a>
+      <a class="badge-store on-teal" href="#download"><span class="glyph">G</span><span><small>Coming soon on</small><strong>Google Play</strong></span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-waitlist">
+    <div class="fw-copy">
+      <h3>Join the waitlist</h3>
+      <p>Be first in line when Mizan launches across the UAE.</p>
+    </div>
+    <form class="waitlist-form">
+      <input type="email" placeholder="you@example.com" aria-label="Email" required>
+      <button type="submit">Join the waitlist</button>
+    </form>
+  </div>
+  <div class="wrap footer-main">
+    <a class="footer-logo" href="Home.html" aria-label="Mizan home" data-logo></a>
+    <div class="footer-right">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="How It Works.html">How it works</a></li>
+          <li><a href="Delivery and Food.html">Delivery &amp; food</a></li>
+          <li><a href="#download">Get the app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="#terms">Terms</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Social</h4>
+        <ul>
+          <li><a href="#instagram">Instagram</a></li>
+          <li><a href="#tiktok">TikTok</a></li>
+          <li><a href="#x">X</a></li>
+        </ul>
+      </div>
+    </div>
+    <span class="footer-ar">ميزان</span>
+    </div>
+  </div>
+  <div class="wrap footer-meta">
+    <span>© 2026 Mizan. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="assets/shared.js"></script>
+</body>
+</html>

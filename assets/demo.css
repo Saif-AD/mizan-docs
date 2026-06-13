@@ -1,0 +1,272 @@
+/* MIZAN — interactive demo styles */
+
+.demo-head { display: grid; gap: 10px; margin-bottom: 26px; }
+.demo-head .h-sect { max-width: 18em; }
+
+.demo-shell {
+  background: var(--teal-soft);
+  border-radius: var(--rad-lg);
+  padding: clamp(18px, 3.5vw, 36px);
+  display: grid;
+  gap: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.demo-dots { display: flex; gap: 7px; }
+.demo-dots i {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: rgba(20, 112, 139, 0.25);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.demo-dots i.on { background: var(--teal); transform: scale(1.25); }
+.demo-back {
+  background: none;
+  border: none;
+  color: var(--teal-deep);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 8px 10px;
+  border-radius: 8px;
+  visibility: hidden;
+}
+.demo-back.show { visibility: visible; }
+.demo-back:hover { background: rgba(20, 112, 139, 0.1); }
+.demo-tag {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.7rem;
+  color: var(--teal-deep);
+  background: rgba(255, 244, 231, 0.7);
+  border-radius: 999px;
+  padding: 5px 13px;
+  font-weight: 600;
+}
+
+.demo-stage { min-height: 380px; display: grid; }
+.demo-step {
+  grid-area: 1 / 1;
+  display: grid;
+  gap: 20px;
+  align-content: start;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .demo-step { animation: demo-step-in 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  @keyframes demo-step-in { from { opacity: 0; transform: translateY(18px); } }
+}
+
+.demo-q { display: grid; gap: 6px; }
+.demo-q h3 { font-size: clamp(1.2rem, 3vw, 1.7rem); }
+.demo-q p { font-size: 0.92rem; opacity: 0.8; max-width: 540px; }
+
+/* Step 1: profiles */
+.demo-profiles { display: grid; gap: 12px; }
+@media (min-width: 700px) { .demo-profiles { grid-template-columns: repeat(3, 1fr); } }
+.demo-profile {
+  background: var(--cream);
+  border: 2px solid transparent;
+  border-radius: var(--rad-md);
+  padding: 22px 20px;
+  text-align: left;
+  display: grid;
+  gap: 8px;
+  font-family: var(--body);
+  color: var(--teal-ink);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  min-height: 44px;
+}
+.demo-profile:hover { transform: translateY(-3px); border-color: var(--teal); box-shadow: var(--shadow-card); }
+.demo-profile .dp-emoji {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--teal-soft);
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+}
+.demo-profile strong { font-size: 1rem; }
+.demo-profile span { font-size: 0.8rem; opacity: 0.7; }
+.demo-profile .dp-go { color: var(--teal); font-weight: 700; font-size: 0.85rem; }
+
+/* Step 2: dashboard */
+.demo-dash {
+  background: var(--cream);
+  border-radius: var(--rad-md);
+  padding: clamp(18px, 3vw, 28px);
+  display: grid;
+  gap: 16px;
+}
+.demo-dash-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.demo-dash-head strong { font-size: 1rem; }
+.demo-dash-head span { font-size: 0.74rem; opacity: 0.6; }
+.demo-targets { display: grid; gap: 10px; }
+.demo-target {
+  display: grid;
+  grid-template-columns: minmax(76px, 110px) 1fr auto;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.demo-target .dt-bar { height: 9px; border-radius: 99px; background: rgba(20, 112, 139, 0.13); overflow: hidden; }
+.demo-target .dt-bar i {
+  display: block; height: 100%;
+  border-radius: 99px;
+  background: var(--teal);
+  width: 0;
+  transition: width 1.1s cubic-bezier(0.3, 0, 0.2, 1);
+}
+.demo-target.warn .dt-bar i { background: var(--amber); }
+.demo-target .dt-val { font-size: 0.78rem; opacity: 0.85; white-space: nowrap; }
+.demo-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--amber-soft);
+  color: var(--amber);
+  font-size: 0.78rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 6px 14px;
+  width: fit-content;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .demo-flag { animation: flag-pop 0.5s cubic-bezier(0.3, 1.4, 0.5, 1) 1s both; }
+  @keyframes flag-pop { from { opacity: 0; transform: scale(0.7); } }
+  .demo-flag.f2 { animation-delay: 1.25s; }
+}
+
+/* Step 3 + 5: rings */
+.demo-rings {
+  background: var(--cream);
+  border-radius: var(--rad-md);
+  padding: clamp(18px, 3vw, 28px);
+  display: grid;
+  gap: 8px;
+}
+.demo-rings-row { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 12px; }
+.dring { display: grid; justify-items: center; gap: 6px; position: relative; }
+.dring svg { width: clamp(86px, 14vw, 116px); height: clamp(86px, 14vw, 116px); transform: rotate(-90deg); }
+.dring .track { fill: none; stroke: rgba(20, 112, 139, 0.13); stroke-width: 8; }
+.dring .fill {
+  fill: none;
+  stroke: var(--teal);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 151;
+  stroke-dashoffset: 151;
+  transition: stroke-dashoffset 1.3s cubic-bezier(0.3, 0, 0.2, 1), stroke 0.5s ease;
+}
+.dring.warn .fill { stroke: var(--amber); }
+.dring .dring-pct {
+  position: absolute;
+  top: clamp(30px, 5vw, 44px);
+  font-family: var(--display);
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  color: var(--teal-ink);
+  transition: color 0.5s ease;
+}
+.dring label { font-size: 0.76rem; font-weight: 600; opacity: 0.75; }
+.dring .dring-need { font-size: 0.68rem; color: var(--amber); font-weight: 700; }
+.dring .dring-need.ok { color: var(--green); }
+
+/* Step 4: meals */
+.demo-meals { display: grid; gap: 12px; }
+@media (min-width: 760px) { .demo-meals { grid-template-columns: repeat(3, 1fr); } }
+.demo-meal {
+  background: var(--cream);
+  border: 2px solid transparent;
+  border-radius: var(--rad-md);
+  padding: 18px;
+  text-align: left;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  font-family: var(--body);
+  color: var(--teal-ink);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.demo-meal:hover { transform: translateY(-3px); border-color: var(--teal); box-shadow: var(--shadow-card); }
+.demo-meal .dm-art {
+  height: 86px;
+  border-radius: 10px;
+  background: repeating-linear-gradient(-45deg, rgba(20,112,139,0.08) 0 10px, rgba(20,112,139,0.15) 10px 20px);
+  display: grid;
+  place-items: center;
+}
+.demo-meal .dm-art code { font-family: ui-monospace, Menlo, monospace; font-size: 0.66rem; color: var(--teal-deep); }
+.demo-meal strong { font-size: 0.95rem; line-height: 1.3; }
+.demo-meal .dm-why { font-size: 0.8rem; opacity: 0.8; line-height: 1.5; }
+.demo-meal .dm-boost { display: flex; flex-wrap: wrap; gap: 6px; }
+.demo-meal .dm-boost span {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--teal-deep);
+  background: var(--teal-soft);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+.demo-meal .dm-tap { color: var(--teal); font-weight: 700; font-size: 0.82rem; }
+
+/* Step 5: payoff */
+.demo-payoff { text-align: center; display: grid; gap: 10px; justify-items: center; }
+.demo-payoff .h-card { font-size: clamp(1.15rem, 3vw, 1.5rem); }
+.demo-payoff p { font-size: 0.9rem; opacity: 0.8; max-width: 480px; }
+.demo-cta {
+  background: var(--teal);
+  color: var(--cream);
+  border-radius: var(--rad-md);
+  padding: clamp(22px, 4vw, 32px);
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+  text-align: center;
+}
+.demo-cta .h-card { color: var(--cream); }
+.demo-cta p { font-size: 0.88rem; opacity: 0.9; max-width: 440px; }
+.demo-email { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 440px; }
+.demo-email input {
+  flex: 1 1 220px;
+  min-height: 46px;
+  border: none;
+  border-radius: 999px;
+  padding: 0 20px;
+  font-family: var(--body);
+  font-size: 0.9rem;
+  color: var(--teal-ink);
+  background: var(--cream);
+}
+.demo-email input:focus { outline: 3px solid rgba(255, 244, 231, 0.5); }
+.demo-email button {
+  min-height: 46px;
+  border: none;
+  border-radius: 999px;
+  padding: 0 24px;
+  background: var(--teal-ink);
+  color: var(--cream);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+.demo-email button:hover { transform: translateY(-2px); }
+.demo-email-done { font-weight: 600; font-size: 0.92rem; }
+
+.demo-next {
+  justify-self: start;
+  background: var(--teal);
+  color: var(--cream);
+  border: none;
+  border-radius: 999px;
+  padding: 13px 28px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, background 0.2s ease;
+  min-height: 46px;
+}
+.demo-next:hover { background: var(--teal-deep); transform: translateY(-2px); }
