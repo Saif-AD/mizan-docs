@@ -50,7 +50,7 @@ body { --page-inset: clamp(12px, 1.8vw, 22px); }
   z-index: 1;
 }
 .hero-bg { position: absolute; inset: 0; }
-.hero-bg image-slot { display: block; width: 100%; height: 100%; }
+.hero-bg img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .hero-bg-note { position: absolute; top: 20px; right: 20px; pointer-events: none; z-index: 2; }
 .hero-copy { position: relative; z-index: 2; display: grid; gap: 12px; justify-items: start; max-width: 600px; }
 .hero-copy .h-hero {
@@ -134,6 +134,7 @@ body { --page-inset: clamp(12px, 1.8vw, 22px); }
   width: min(78%, 240px);
   height: clamp(160px, 13vw, 230px);
   display: block;
+  object-fit: contain;
 }
 .step-tag {
   width: clamp(44px, 3.2vw, 56px);
@@ -288,9 +289,9 @@ body { --page-inset: clamp(12px, 1.8vw, 22px); }
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="nav-logo" href="Home.html" aria-label="Mizan home" data-logo></a>
+    <a class="nav-logo" href="index.html" aria-label="Mizan home" data-logo></a>
     <ul class="nav-links">
-      <li><a href="Home.html" aria-current="page">Home</a></li>
+      <li><a href="index.html" aria-current="page">Home</a></li>
       <li><a href="How It Works.html">How it works</a></li>
       <li><a href="Delivery and Food.html">Delivery &amp; food</a></li>
       <li><a href="#download">Get The App</a></li>
@@ -298,7 +299,7 @@ body { --page-inset: clamp(12px, 1.8vw, 22px); }
     <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <nav class="nav-drawer">
-    <a href="Home.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="How It Works.html">How it works</a>
     <a href="Delivery and Food.html">Delivery &amp; food</a>
     <a href="#download">Get the app</a>
@@ -311,7 +312,7 @@ body { --page-inset: clamp(12px, 1.8vw, 22px); }
 <section class="hero-band" data-screen-label="Hero">
   <div class="hero-frame">
     <div class="hero-bg">
-      <image-slot id="hero-bg" fit="cover" shape="rect" placeholder="Hero background — drop your generated image here"></image-slot>
+      <img id="hero-bg" src="assets/hero-bg.webp" alt="Fresh, nutrient-dense meal — Mizan hero">
       <span class="placeholder-note hero-bg-note">placeholder — hero image coming</span>
     </div>
     <div class="hero-copy">
@@ -380,25 +381,25 @@ Your bloodwork says otherwise.</p>
   <div class="steps-bleed">
     <div class="steps">
       <div class="step rv">
-        <image-slot id="step-art-1" class="step-art" shape="rect" placeholder="food photo"></image-slot>
+        <img id="step-art-1" class="step-art" src="uploads/139203-food-plate-top-nutrition-view.png" alt="Bloodwork-linked nutrition plate">
         <span class="step-tag">1</span>
         <h3 style="letter-spacing: -0.4px;">Connect your bloodwork</h3>
         <p style="width: 449px; height: 36px">Link verified results through our secured UAE government integration — no PDFs, no typing.</p>
       </div>
       <div class="step rv rv-d1">
-        <image-slot id="step-art-2" class="step-art" shape="rect" placeholder="food photo"></image-slot>
+        <img id="step-art-2" class="step-art" src="uploads/139204-food-plate-top-pasta-view.png" alt="Personalized macro targets plate">
         <span class="step-tag">2</span>
         <h3>Get personalized targets</h3>
         <p style="height: 35px">Your daily macro and micro goals, built from your markers — not a population average.</p>
       </div>
       <div class="step rv rv-d2">
-        <image-slot id="step-art-3" class="step-art" shape="rect" placeholder="food photo"></image-slot>
+        <img id="step-art-3" class="step-art" src="uploads/139206-food-plate-top-snack-view.png" alt="Live meal recommendations plate">
         <span class="step-tag">3</span>
         <h3>See live recommendations</h3>
         <p style="height: 35px">Meals scored against what your body is missing today, updated as you eat.</p>
       </div>
       <div class="step rv rv-d3">
-        <image-slot id="step-art-4" class="step-art" shape="rect" placeholder="food photo"></image-slot>
+        <img id="step-art-4" class="step-art" src="uploads/139210-food-plate-white-png-image-high-quality.png" alt="Delivered meal plate">
         <span class="step-tag">4</span>
         <h3>Order delivery</h3>
         <p style="height: 35px">The food that closes your gaps, delivered by Mizan across the UAE.</p>
@@ -475,7 +476,7 @@ Your bloodwork says otherwise.</p>
     </div>
     <div class="grid-3">
       <article class="meal-card rv">
-        <div class="meal-art"><image-slot id="home-meal-1" shape="rounded" radius="12" placeholder="Photo: beef & spinach bowl"></image-slot></div>
+        <div class="meal-art"><img id="home-meal-1" src="uploads/139184-food-plate-healthy-free-photo.png" alt="Grilled beef and spinach bowl"></div>
         <div class="meal-body">
           <h3 class="h-card">Grilled Beef &amp; Spinach Bowl</h3>
           <p>High in heme iron, paired with vitamin-C-rich peppers for absorption.</p>
@@ -483,7 +484,7 @@ Your bloodwork says otherwise.</p>
         </div>
       </article>
       <article class="meal-card alt rv rv-d1">
-        <div class="meal-art"><image-slot id="home-meal-2" shape="rounded" radius="12" placeholder="Photo: salmon & grain plate"></image-slot></div>
+        <div class="meal-art"><img id="home-meal-2" src="uploads/139180-food-plate-fish-download-hd.png" alt="Charred salmon and freekeh plate"></div>
         <div class="meal-body">
           <h3 class="h-card">Charred Salmon &amp; Freekeh</h3>
           <p>Omega-3s and vitamin D in one plate — the two gaps we see most in the UAE.</p>
@@ -491,7 +492,7 @@ Your bloodwork says otherwise.</p>
         </div>
       </article>
       <article class="meal-card rv rv-d2">
-        <div class="meal-art"><image-slot id="home-meal-3" shape="rounded" radius="12" placeholder="Photo: lentil & halloumi salad"></image-slot></div>
+        <div class="meal-art"><img id="home-meal-3" src="uploads/139399-food-nutrition-top-view-plate.png" alt="Lentil, date and halloumi salad"></div>
         <div class="meal-body">
           <h3 class="h-card">Lentil, Date &amp; Halloumi Salad</h3>
           <p>Plant iron, folate and calcium — built for plant-forward days.</p>
@@ -565,13 +566,13 @@ Your bloodwork says otherwise.</p>
     </form>
   </div>
   <div class="wrap footer-main">
-    <a class="footer-logo" href="Home.html" aria-label="Mizan home" data-logo></a>
+    <a class="footer-logo" href="index.html" aria-label="Mizan home" data-logo></a>
     <div class="footer-right">
     <div class="footer-cols">
       <div class="footer-col">
         <h4>Pages</h4>
         <ul>
-          <li><a href="Home.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="How It Works.html">How it works</a></li>
           <li><a href="Delivery and Food.html">Delivery &amp; food</a></li>
           <li><a href="#download">Get the app</a></li>
