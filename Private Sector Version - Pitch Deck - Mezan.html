@@ -3,7 +3,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mizan — Pre-Seed Deck</title>
+<title>Mizan Pre-Seed Deck</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -11,6 +11,182 @@
 <style>
   html, body { margin: 0; background: #000; }
   deck-stage:not(:defined) { visibility: hidden; }
+
+.equation{grid-template-columns:1fr 46px 1fr 46px 1.15fr;}
+.eq-card{height:662px;padding:34px 32px;gap:14px;grid-template-rows:auto 1fr;align-content:start;}
+.eq-op{font-size:42px;color:var(--cream);}
+.eq-card .kicker{font-size:22px;opacity:0.85;}
+.eq-card h3{font-size:48px;line-height:0.96;}
+.radar-meals{display:grid;grid-template-columns:1fr 1fr;gap:10px 22px;align-content:center;justify-items:center;flex:1;align-self:stretch;}
+.radar-fig{display:grid;justify-items:center;gap:0;margin:0;}
+.radar-fig svg{width:214px;height:214px;display:block;}
+.radar-fig figcaption{font-size:21px;font-weight:600;color:var(--teal-ink);opacity:0.82;margin-top:-20px;}
+.radar-single{display:grid;grid-template-rows:1fr auto;justify-items:center;align-items:center;height:100%;}
+.radar-block{display:grid;grid-template-rows:1fr auto;justify-items:center;align-items:center;height:100%;}
+.radar-single svg{width:402px;height:402px;display:block;}
+.radar-cap{font-size:23px;font-weight:700;color:var(--teal-ink);}
+.eq-card.result .radar-cap{color:var(--cream);}
+.radar-legend{display:flex;gap:18px;align-items:center;font-size:17px;font-weight:600;color:var(--cream);opacity:0.9;}
+.radar-legend i{display:inline-block;width:16px;height:16px;border-radius:3px;margin-right:6px;vertical-align:-2px;}
+.radar-legend .lg-need{height:0;width:24px;border:none;border-top:3px dashed #f9e9d4;border-radius:0;vertical-align:middle;}
+.radar-legend .lg-meal{background:rgba(194,116,28,0.6);border:2px solid #e08a2b;}
+
+.bm-lead{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.bm-sub{font-size:27px;line-height:1.3;opacity:0.7;color:var(--teal-ink);margin-top:2px;}
+.bm-lead-card{background:var(--cream-card);border-radius:var(--rad-md);box-shadow:var(--shadow-card);padding:38px 44px;display:grid;gap:16px;align-content:start;}
+.bm-lead-card.dark{background:var(--teal-ink);color:var(--cream);}
+.bm-lead-card h3{font-family:var(--display);font-weight:700;font-size:40px;line-height:1.0;letter-spacing:-0.4px;color:var(--teal-ink);text-transform:none;}
+.bm-lead-card.dark h3{color:var(--cream);}
+.bm-lead-card p{font-size:26px;line-height:1.42;opacity:0.86;}
+.bm-foot{display:grid;grid-template-columns:0.58fr 1fr;gap:26px;align-items:stretch;}
+.bm-margin{background:var(--teal);color:var(--cream);border-radius:var(--rad-md);padding:26px 40px;display:flex;flex-direction:column;justify-content:center;}
+.bm-margin b{font-family:var(--display);font-weight:700;font-size:78px;line-height:0.84;color:#aee9c8;}
+.bm-margin .hl{font-family:var(--display);font-weight:700;font-size:24px;line-height:1.1;margin-top:10px;}
+.bm-margin .hs{font-size:19px;opacity:0.82;margin-top:8px;}
+.bm-streams{background:var(--cream-card);border-radius:var(--rad-md);box-shadow:var(--shadow-card);padding:10px 36px;display:grid;align-content:center;}
+.bm-stream{display:flex;align-items:center;gap:20px;padding:15px 0;border-bottom:1px solid rgba(9,46,58,0.1);}
+.bm-stream:last-child{border-bottom:none;}
+.bm-stream .nm{font-family:var(--display);font-weight:700;font-size:25px;color:var(--teal-ink);flex:none;width:312px;}
+.bm-stream .ds{font-size:20px;opacity:0.72;flex:1;}
+.bm-tag{font-family:var(--display);font-weight:700;font-size:16px;padding:6px 16px;border-radius:999px;flex:none;}
+.bm-tag.live{background:var(--teal);color:var(--cream);}
+.bm-tag.soon{background:transparent;color:var(--amber);border:2px solid var(--amber);}
+
+/* ---- Unit-economics reframe of business model ---- */
+.ue-main{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;align-items:stretch;}
+.ue-econ,.ue-why{background:var(--cream-card);border-radius:var(--rad-md);box-shadow:var(--shadow-card);padding:22px 34px;}
+.ue-econ{display:flex;flex-direction:column;gap:11px;padding:22px 34px 0;overflow:hidden;}
+.ue-why{display:grid;grid-template-rows:auto 1fr auto;gap:14px;}
+.ue-card-head{font-family:var(--display);font-weight:700;font-size:28px;color:var(--teal-ink);letter-spacing:-0.3px;}
+.ue-waterfall{display:grid;gap:6px;}
+.ue-line{display:flex;justify-content:space-between;align-items:baseline;gap:20px;font-size:25px;line-height:1.18;font-weight:600;color:var(--teal-ink);}
+.ue-line span{opacity:0.84;}
+.ue-line b{font-family:var(--display);font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-0.5px;}
+.ue-grp{display:grid;gap:6px;padding-left:20px;border-left:3px solid var(--teal-soft);}
+.ue-grp .ue-line{font-size:23px;font-weight:500;}
+.ue-line.total{border-top:2px solid rgba(9,46,58,0.18);padding-top:8px;margin-top:1px;}
+.ue-line.cost b,.ue-line.cost span{color:var(--amber);opacity:1;}
+.ue-line.profit b{color:var(--green);}
+.ue-bigprofit{margin:auto -34px 0;background:var(--teal);color:var(--cream);border-radius:0;padding:28px 34px;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.ue-bigprofit .bp-text{display:grid;gap:4px;}
+.ue-bigprofit .lab{font-family:var(--display);font-weight:700;font-size:29px;line-height:1;}
+.ue-bigprofit em{font-style:normal;font-weight:600;font-size:22px;opacity:0.9;}
+.ue-bigprofit b{font-family:var(--display);font-weight:700;font-size:82px;line-height:0.82;color:#aee9c8;letter-spacing:-1px;}
+.ue-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;height:100%;}
+.ue-col{display:grid;grid-template-rows:auto 1fr auto;gap:10px;border-radius:var(--rad-sm);padding:16px 18px;}
+.ue-col.trad{background:var(--amber-soft);}
+.ue-col.mizan{background:var(--teal-soft);}
+.ue-col h4{font-family:var(--body);font-weight:700;font-size:22px;margin:0;color:var(--teal-ink);}
+.ue-col ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;align-content:space-between;}
+.ue-col li{font-size:21px;line-height:1.2;opacity:0.85;position:relative;padding-left:19px;}
+.ue-col li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;}
+.ue-col.trad li::before{background:var(--amber);}
+.ue-col.mizan li::before{background:var(--teal);}
+.ue-tag{font-weight:700;font-size:18px;border-radius:999px;padding:6px 14px;text-align:center;margin-top:4px;line-height:1.15;}
+.ue-col.trad .ue-tag{background:rgba(194,116,28,0.18);color:var(--amber);}
+.ue-col.mizan .ue-tag{background:rgba(20,112,139,0.18);color:var(--teal-deep);}
+.ue-statement{margin-top:2px;font-family:var(--display);font-weight:700;font-size:32px;line-height:1.02;color:var(--teal-ink);}
+.ue-statement span{color:var(--teal);}
+.ue-lead{font-family:var(--display);font-weight:700;font-size:31px;line-height:1.16;color:var(--teal-ink);text-wrap:balance;}
+.ue-lead span{color:var(--teal);}
+.ue-ai{background:var(--teal-soft);border-radius:var(--rad-sm);padding:16px 22px;display:grid;gap:11px;align-content:center;}
+.ue-ai-head{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal-deep);}
+.ue-ai ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px;}
+.ue-ai li{background:var(--cream-card);border:1.5px solid rgba(20,112,139,0.32);color:var(--teal-deep);border-radius:999px;padding:7px 17px;font-size:20px;font-weight:600;}
+.ue-out{display:flex;flex-direction:column;gap:9px;}
+.ue-out span{font-size:24px;font-weight:600;color:var(--teal-ink);position:relative;padding-left:32px;line-height:1.15;}
+.ue-out span::before{content:"\2192";position:absolute;left:0;top:0;color:var(--teal);font-weight:700;}
+.ue-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;background:var(--cream-card);border-radius:var(--rad-md);box-shadow:var(--shadow-card);padding:16px 36px;}
+.ue-strip > div{display:flex;gap:15px;align-items:center;}
+.ue-strip > div + div{border-left:1.5px solid rgba(9,46,58,0.12);padding-left:24px;}
+.ue-strip .dot{width:18px;height:18px;border-radius:50%;flex:none;}
+.ue-strip .dot.green{background:var(--green);}
+.ue-strip .dot.teal{background:var(--teal);}
+.ue-strip .dot.purple{background:#735aa6;}
+.ue-strip small{display:block;font-size:18px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);opacity:0.72;margin-bottom:2px;}
+.ue-strip .st b{font-family:var(--display);font-weight:700;font-size:24px;color:var(--teal-ink);line-height:1.05;}
+/* ---- Marketplace economics — two-column with phone ---- */
+.bm2-grid{display:grid;grid-template-columns:1.02fr 0.98fr;gap:78px;align-items:center;width:100%;max-width:1640px;margin:0 auto;}
+.bm2-left{display:flex;flex-direction:column;gap:26px;}
+.bm2-head{display:grid;gap:10px;}
+.bm2-left .ue-lead{font-size:33px;}
+.bm2-left .ue-out{gap:11px;}
+.bm2-right{display:flex;justify-content:center;align-items:center;}
+.bm-phone{position:relative;width:418px;}
+.bm-phone .shot{display:block;background:var(--cream-tint);}
+.bm-phone .fee-mark{position:absolute;background:var(--amber);border-radius:2px;z-index:2;}
+.bm-phone .rcpt-extra{position:absolute;left:7.5%;right:7.5%;top:71%;background:#fff;border-radius:18px;box-shadow:var(--shadow-card);padding:9px 20px 10px;font-family:var(--body);color:var(--teal-ink);z-index:4;}
+.bm-phone .rx-line{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0;line-height:1.15;font-size:17px;}
+.bm-phone .rx-line span{font-weight:500;opacity:0.62;}
+.bm-phone .rx-line b{font-family:var(--display);font-weight:700;font-size:25px;letter-spacing:-0.3px;}
+.bm-phone .rx-head{display:block;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:0.13em;text-transform:uppercase;color:var(--teal);margin-bottom:6px;}
+.bm-phone .rx-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:7px 0;font-size:20px;}
+.bm-phone .rx-row span{font-weight:500;opacity:0.6;}
+.bm-phone .rx-row b{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-0.3px;}
+.bm-phone .rx-row.commission b{color:var(--teal);}
+.bm-phone .rx-row.commission{padding:7px 0;margin:0;}
+.bm-phone .rx-lbl{display:flex;flex-direction:column;gap:0;}
+.bm-phone .rx-lbl strong{font-weight:600;opacity:0.85;line-height:1.05;}
+.bm-phone .rx-lbl em{font-style:normal;font-weight:500;font-size:16px;opacity:0.6;line-height:1.1;}
+.bm-phone .rx-total{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:2px solid rgba(9,46,58,0.14);padding-top:7px;margin-top:5px;}
+.bm-phone .rx-total span{font-family:var(--display);font-weight:700;font-size:22px;color:var(--teal-ink);}
+.bm-phone .rx-total b{font-family:var(--display);font-weight:700;font-size:27px;letter-spacing:-0.6px;color:var(--teal);}
+/* ---- Team (founders) — restructured ---- */
+.team-cards{display:grid !important;grid-template-columns:repeat(3,1fr);gap:26px;align-items:stretch;}
+.team-card{min-height:0 !important;padding:16px 40px 14px !important;display:grid;gap:0;justify-items:center;align-content:start;text-align:center;}
+.team-card .avatar{width:224px !important;height:224px !important;border-radius:50%;overflow:hidden;padding:0;border:6px solid var(--teal);box-shadow:var(--shadow-card);margin-bottom:6px;background:var(--cream-tint);}
+.team-card .avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+.team-card h3{font-size:46px !important;line-height:0.95;text-transform:uppercase;letter-spacing:-0.5px;margin-top:20px;margin-bottom:2px;}
+.tm-rows{display:grid;gap:10px;width:100%;text-align:center;padding:0 6px 0;}
+.tm-sec{display:grid;gap:3px;margin:0;padding:0;border:none;justify-items:center;}
+.tm-sec::before{content:"";width:28px;height:3px;border-radius:2px;background:var(--teal);margin-bottom:0px;}
+.tm-label{display:block !important;font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:0.13em;line-height:1;text-transform:uppercase;color:var(--teal);opacity:0.92;}
+.tm-text{font-size:27px;line-height:1.12;opacity:0.92;margin:0;}
+.tm-text::before,.tm-sec p::before{display:none !important;}
+.tm-text b{font-weight:700;}
+.tm-text .sub{display:block;font-size:21px;opacity:0.52;margin-top:3px;font-weight:500;}
+.team-card .uni-logo{margin:0 !important;height:84px !important;border:3px solid var(--teal);border-radius:999px;overflow:hidden;display:grid;place-items:center;background:var(--cream-card);}
+.team-card .uni-logo img{display:block;object-fit:contain;}
+.tm-logos{display:flex;gap:16px;width:100%;justify-content:center;align-items:center;margin-top:8px;}
+.tm-logos .uni-logo:not(.exp-logo){flex:0 0 200px;width:200px !important;}
+.team-card .exp-logo{flex:0 0 84px !important;width:84px !important;height:84px !important;border-radius:50% !important;}
+.team-stats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--cream-card);border-radius:var(--rad-md);box-shadow:var(--shadow-card);padding:16px 24px;}
+.team-stats .ts-quote{grid-column:1 / -1;text-align:center;font-size:25px;line-height:1.35;color:var(--teal-ink);padding:2px 50px 12px;border-bottom:1.5px solid rgba(9,46,58,0.12);margin-bottom:8px;text-wrap:balance;}
+.team-stats .ts-quote b{color:var(--teal);font-weight:700;}
+.team-subtitle{font-family:var(--display);font-weight:700;font-size:48px;color:var(--teal);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:3px;line-height:1.12;margin-top:18px;}
+.team-keynote p{font-family:var(--body);font-weight:600;font-size:30px;line-height:1.3;text-wrap:balance;}
+.team-keynote b{color:#aee9c8;font-weight:700;}
+.team-stats > div{display:grid;gap:5px;align-content:center;justify-items:center;padding:4px 24px;text-align:center;}
+.team-stats > div + div{border-left:1.5px solid rgba(9,46,58,0.14);}
+.team-stats b{font-family:var(--display);font-weight:700;font-size:50px;line-height:0.9;color:var(--teal);}
+.team-stats .lbl{font-size:22px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--teal-ink);opacity:0.72;}
+
+/* ---- Ask roadmap reworked: metric-driven plan ---- */
+.ask-plan{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative;padding-top:30px;}
+.ask-plan::before{content:"";position:absolute;top:3px;left:12px;right:77px;height:3px;border-radius:2px;background:rgba(255,244,231,0.35);}
+.ask-plan::after{content:"";position:absolute;top:-4px;right:58px;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:15px solid rgba(255,244,231,0.35);}
+.plan-stop{position:relative;}
+.plan-stop .plan-pip{position:absolute;top:-35px;left:50%;transform:translateX(-50%);width:18px;height:18px;border-radius:50%;z-index:2;}
+.plan-card{background:var(--cream-card);color:var(--teal-ink);border-radius:var(--rad-md);box-shadow:var(--shadow-card);padding:26px 28px;display:grid;gap:15px;align-content:center;height:100%;box-sizing:border-box;}
+.plan-tag{font-family:var(--display);font-weight:700;font-size:23px;letter-spacing:0.05em;text-transform:uppercase;}
+.plan-title{font-family:var(--display);font-weight:700;font-size:31px;line-height:0.98;color:var(--teal-ink);letter-spacing:-0.6px;}
+.plan-kpis{display:flex;gap:28px;margin-top:2px;}
+.plan-kpi{display:flex;flex-direction:column;gap:3px;}
+.plan-kpi b{font-family:var(--display);font-weight:700;font-size:52px;line-height:0.82;letter-spacing:-1.6px;color:var(--teal-ink);}
+.plan-kpi span{font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6;}
+.plan-note{font-size:19px;line-height:1.3;opacity:0.72;padding-top:2px;}
+.plan-note::before{content:"";display:block;width:46px;height:2.5px;border-radius:2px;background:rgba(9,46,58,0.16);margin:0 0 11px;}
+.ask-top{grid-template-columns:1fr;gap:14px !important;align-items:start !important;}
+.ask-wrap{gap:26px !important;align-content:center !important;}
+.ask-intro .ask-sub{height:auto !important;margin-top:-34px !important;}
+.ask-intro{gap:7px;}
+.ask-intro h2{margin:0;}
+.ask-top > .funds-plain{margin-top:4px;width:860px;max-width:100%;gap:14px;}
+.ask-top > .funds-plain .funds-bar{width:100%;}
+.grocery-visual{width:auto !important;}
+.groc-phone{width:418px;}
+.groc-phone .shot{background:rgb(246,241,232);}
+
 </style>
 <link id="gfont-Inter" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap">
 </head>
@@ -21,7 +197,7 @@
   <!-- ============ 1 · TITLE ============ -->
   <section data-label="Title" class="title-slide">
     <div class="hero-card rv">
-      <img class="hero-photo" src="assets/hero-home.png" alt="Ordering on Mizan — the feed ranked for your goals">
+      <img class="hero-photo" src="assets/hero-home.png" alt="Ordering on Mizan, the feed ranked for your goals" style="transform: translate(120px, 180px) scale(1.45); transform-origin: 72% 40%">
       <svg class="hero-frame-svg" viewBox="0 0 1876 1036" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <path fill-rule="evenodd" d="M 92 40 H 1784 A 52 52 0 0 1 1836 92 V 944 A 52 52 0 0 1 1784 996 H 92 A 52 52 0 0 1 40 944 V 92 A 52 52 0 0 1 92 40 Z M 108 86 H 1486 A 34 34 0 0 1 1520 120 V 126 A 44 44 0 0 0 1564 170 H 1756 A 34 34 0 0 1 1790 204 V 928 A 22 22 0 0 1 1768 950 H 984 A 34 34 0 0 1 950 916 V 728 A 44 44 0 0 0 906 684 H 120 A 34 34 0 0 1 86 650 V 108 A 22 22 0 0 1 108 86 Z"></path>
       </svg>
@@ -34,27 +210,67 @@
             <path d="M760.04.76c17.34,96.14,29.52,192.74,32.83,289.79h70.83s-6.63-115.16-6.63-115.16l35.86,115.16h84.19C971.74,193.45,971.74,97.11,977.12,0h-88.87s4.29,118.16,4.29,118.16L855.9.76h-95.86Z"></path>
           </svg>
       </div>
-      <div class="hero-headline rv rv-d2" style="width: 910px">
+      <div class="hero-headline rv rv-d2" style="width: 910px; bottom: 28px">
         <h1 style="margin: 0px 0px 0px -20px"><span class="hl-a" style="font-size: 91px; width: 814px; height: 88px; margin: -48px 0px 3px">Know what's in your food,</span><span class="hl-b" style="font-size: 139px; line-height: 0.5"><u>Before</u> you order.</span></h1>
-        <p class="hero-contact" style="margin: 13px 0px -16px -20px">HELLO@MIZAN.MARKET &middot; DUBAI, UAE</p>
+        <p class="hero-contact" style="margin: 13px 0px -16px -20px; font-size: 42px">HELLO@MIZAN.MARKET</p>
       </div>
     </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section data-label="Team">
+    <div class="slide-pad" style="align-content: start; gap: 14px; padding: 48px 110px 0;">
+      <div style="display: grid; gap: 10px;">
+        <p class="kicker rv" style="height: 19px">Team</p>
+        <h2 class="h-slide rv rv-d1" style="height: 48px; padding: 0px 0px 5px">Meet the founders.</h2>
+        <p class="team-subtitle rv rv-d1" style="margin: 33px 0px 0px; padding: 0px; font-weight: 500; font-size: 71px; letter-spacing: -1.7px; line-height: 0.9">We were delivery-app customers first. Now we're building a better one</p>
+      </div>
+      <div class="team-cards rv rv-d2" style="height: 519px; padding: 0px; margin: 23px 0px 0px">
+        <div class="card team-card">
+          <span class="avatar" style="height: 236px; margin: 23px 0px 6px"><img src="assets/founder-alex.webp" alt="Alex" style="object-position: 38% 40%; transform: scale(1.9); transform-origin: 38% 40%; width: 287px; height: 186px; margin: -72px 0px 0px"></span>
+          <h3>Alex L.</h3>
+          <div class="tm-rows">
+            <div class="tm-sec" style="height: 178px"><p class="tm-text" style="height: 0px"><b>PhD in AI Hardware</b></p><div class="tm-logos" style="height: 78px; margin: 30px 0px 0px"><div class="uni-logo" style="background-color: rgb(1, 33, 72)"><img src="assets/oxford.jpg" alt="University of Oxford" style="height: 101px; width: 194px; margin: -11px 0px 0px"></div><div class="uni-logo exp-logo" style="background-color: rgb(0, 51, 160)"><img src="assets/cern-logo.png" alt="CERN" style="height:50px"></div></div></div>
+          </div>
+        </div>
+        <div class="card team-card">
+          <span class="avatar" style="height: 236px; margin: 23px 0px 6px"><img src="assets/founder-omar.webp" alt="Omar" style="object-position: 50% 46%"></span>
+          <h3>Omar Alsaadi</h3>
+          <div class="tm-rows">
+            <div class="tm-sec" style="height: 178px"><p class="tm-text" style="height: 0px"><b>Math &amp; Statistics Major</b></p><div class="tm-logos" style="height: 78px; margin: 30px 0px 0px"><div class="uni-logo" style="background-color: rgb(121, 0, 61)"><img src="assets/mcmaster.jpg" alt="McMaster University" style="height: 79px; width: 158px; object-fit: cover"></div><div class="uni-logo exp-logo" style="background-color: #ffffff"><img src="assets/g42-logo.png" alt="G42" style="height:52px"></div></div></div>
+          </div>
+        </div>
+        <div class="card team-card">
+          <span class="avatar" style="height: 236px; margin: 23px 0px 6px"><img src="assets/founder-saif-paris.jpg" alt="Saif" style="object-position: 50% 24%; transform: scale(1.7); transform-origin: 50% 24%; height: 275px; padding: 0px; margin: -100px -12px 160px -21px; width: 235px"></span>
+          <h3>Saif Aldhaheri</h3>
+          <div class="tm-rows">
+            <div class="tm-sec" style="height: 178px"><p class="tm-text" style="height: 0px"><b>Computer Science Major</b></p><div class="tm-logos" style="height: 78px; margin: 30px 0px 0px"><div class="uni-logo" style="background-color: rgb(225, 34, 33)"><img src="assets/kings.png" alt="King&#39;s College London" style="width:124px;height:80px"></div><div class="uni-logo exp-logo" style="background-color: #ffffff"><img src="assets/g42-logo.png" alt="G42" style="height:52px"></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="team-stats rv rv-d3" style="margin: 0px 0px 28px">
+        <div><b>10K</b><span class="lbl">Meals Tracked</span></div>
+        <div style="width: 575px"><b>5K+</b><span class="lbl">Orders Placed</span></div>
+        <div><b>2</b><span class="lbl">Companies Started</span></div>
+      </div>
+    </div>
+    <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span>02 / 11</span></div>
   </section>
 
   <!-- ============ 2 · PROBLEM ============ -->
   <section data-label="Problem">
     <div class="two-col">
       <div class="col-copy">
-        <p class="kicker rv" style="height: 35px; padding: 0px">Problem</p>
+        <p class="kicker rv" style="height: 35px; padding: 0px">DATA PROBLEM</p>
         <h2 class="h-slide rv rv-d1">Delivery apps show everything, <span class="accent">except what's important.</span></h2>
         <div class="point-list">
           <div class="point rv rv-d2">
             <span class="num-disc" style="font-size: 44px">01</span>
-            <p style="line-height: 1.05; letter-spacing: -0.6px"><strong>The apps don't have the nutritional data.</strong> Restaurant nutrition is genuinely hard to pin down: recipes, portions and prep all vary. So menus show price, speed and photos — nothing about what's inside.</p>
+            <p style="line-height: 1.05; letter-spacing: -0.6px"><strong>The apps don't have the nutritional data.</strong> Recipes, portions and prep all vary, so menus show price, speed and photos, never what's inside.</p>
           </div>
           <div class="point rv rv-d3">
             <span class="num-disc" style="background: var(--amber); font-size: 44px">02</span>
-            <p style="line-height: 1.2; letter-spacing: -0.7px"><strong>And users don't know what their body needs.</strong> Even with macros in hand, most people don't know what their body needs. 40g of protein means nothing without a goal to measure it against.</p>
+            <p style="line-height: 1.2; letter-spacing: -0.7px"><strong>Users don't know what their body needs.</strong> 40g of protein means nothing without a goal to measure it against.</p>
           </div>
         </div>
       </div>
@@ -62,7 +278,7 @@
         <b class="compare-name" style="height: 25px">Deliveroo</b>
         <div class="framed-phone compare-phone">
           <img class="frame" src="assets/phone-mockup.png" alt="">
-          <img class="shot" src="assets/competitor-dish.png" alt="A competitor delivery app dish page — no nutrition information shown">
+          <img class="shot" src="assets/competitor-dish.png" alt="A competitor delivery app dish page with no nutrition information shown">
           <div class="missing-overlay">
             <span class="compare-callout">Calories<b>?</b></span>
             <span class="compare-callout">Protein<b>?</b></span>
@@ -73,21 +289,21 @@
         </div>
       </div>
     </div>
-    <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span style="font-family: &quot;Smart Sans Std&quot;; font-size: 55px; letter-spacing: 0.5px">02 / 10</span></div>
+    <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span style="font-family: &quot;Smart Sans Std&quot;; font-size: 55px; letter-spacing: 0.5px">03 / 11</span></div>
   </section>
 
   <!-- ============ 2b · THE WORKAROUND ============ -->
   <section data-label="The workaround" class="flow-slide">
     <div class="flow-pad">
       <header class="flow-head">
-        <p class="kicker rv">Problem</p>
+        <p class="kicker rv">TIME PROBLEM</p>
         <h2 class="h-slide rv rv-d1">Even with the data, eating well means juggling three apps.</h2>
         <p class="flow-sub rv rv-d1">Three apps and a dozen taps before a single bite, so most people skip it and just order blind.</p>
       </header>
       <div class="flow-rail rv rv-d2">
         <div class="flow-stage node">
           <span class="flow-pip"></span>
-          <div class="flow-end start"><b>You want food</b></div>
+          <div class="flow-end start"><b style="line-height: 0.8">You want food</b></div>
         </div>
         <div class="flow-stage">
           <span class="flow-pip"></span>
@@ -98,7 +314,7 @@
             <img class="shot" src="assets/talabat.png" alt="Talabat dish page">
           </div>
         </div>
-        <div class="flow-loop">
+        <div class="flow-loop" style="visibility: hidden;">
           <svg viewBox="0 0 96 22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 11 H92 M82 3 L92 11 L82 19"></path></svg>
           <em>compare
 nutrition</em>
@@ -129,9 +345,10 @@ nutrition</em>
         </div>
         <svg class="flow-toploop" viewBox="0 0 1700 80" aria-hidden="true"><path d="M431 52 L431 28 Q431 18 441 18 L1259 18 Q1269 18 1269 28 L1269 52" fill="none" stroke-width="3" stroke-linecap="round" stroke-dasharray="10 9" style="stroke-width: 4px"></path><path d="M421 39 L441 39 L431 55 Z" fill="var(--amber)" style="stroke: var(--cream); stroke-width: 4px; stroke-linejoin: round"></path><path d="M648 18 L670 8 L670 28 Z" fill="var(--amber)" style="stroke: var(--cream); stroke-width: 4px; stroke-linejoin: round"></path><path d="M850 18 L872 8 L872 28 Z" fill="var(--amber)" style="stroke: var(--cream); stroke-width: 4px; stroke-linejoin: round"></path><path d="M1052 18 L1074 8 L1074 28 Z" fill="var(--amber)" style="stroke: var(--cream); stroke-width: 4px; stroke-linejoin: round"></path></svg>
         <span class="flow-toploop-label" style="letter-spacing: -1.2px; height: 30px; padding: 0px; margin: -16px 0px 0px">Meal does not fit nutrient requirements</span>
+        <svg class="flow-toploop" viewBox="0 0 1700 80" style="top: 624px; transform: scaleX(-1) scaleY(-1);" aria-hidden="true"><path d="M431 52 L431 28 Q431 18 441 18 L1259 18 Q1269 18 1269 28 L1269 52" fill="none" stroke-width="3" stroke-linecap="round" stroke-dasharray="10 9" style="stroke-width: 4px"></path><path d="M421 39 L441 39 L431 55 Z" fill="var(--amber)" style="stroke: var(--cream); stroke-width: 4px; stroke-linejoin: round"></path><path d="M648 18 L670 8 L670 28 Z" fill="var(--amber)" style="stroke: var(--cream); stroke-width: 4px; stroke-linejoin: round"></path><path d="M850 18 L872 8 L872 28 Z" fill="var(--amber)" style="stroke: var(--cream); stroke-width: 4px; stroke-linejoin: round"></path><path d="M1052 18 L1074 8 L1074 28 Z" fill="var(--amber)" style="stroke: var(--cream); stroke-width: 4px; stroke-linejoin: round"></path></svg>
       </div>
     </div>
-    <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span>03 / 10</span></div>
+    <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span>04 / 11</span></div>
   </section>
 
   <!-- ============ 3b · THE MIZAN WAY ============ -->
@@ -139,8 +356,8 @@ nutrition</em>
     <div class="flow-pad">
       <header class="flow-head">
         <p class="kicker rv">With Mizan</p>
-        <h2 class="h-slide rv rv-d1">One app does <span class="accent">all three.</span></h2>
-        <p class="flow-sub rv rv-d1">You don't even need to check what's inside, just browse and order knowing every dish is recommended just for you.</p>
+        <h2 class="h-slide rv rv-d1">One app <span class="accent">simplifies it</span></h2>
+        <p class="flow-sub rv rv-d1">You don't even need to check what's inside, just browse and order knowing every dish is <strong style="text-decoration: underline; text-underline-offset: 3px;">right</strong> for you.</p>
       </header>
       <div class="flow-rail rv rv-d2">
         <div class="flow-stage node">
@@ -153,7 +370,7 @@ nutrition</em>
           <small>Filtered for your health</small>
           <div class="framed-phone flow-phone">
             <img class="frame" src="assets/phone-mockup.png" alt="">
-            <img class="shot" src="uploads/Picture2-193479fd.png" alt="Mizan feed — meals ranked for your goals">
+            <img class="shot" src="uploads/Picture2-193479fd.png" alt="Mizan feed of meals ranked for your goals">
           </div>
         </div>
         <div class="flow-stage node">
@@ -162,49 +379,26 @@ nutrition</em>
         </div>
       </div>
     </div>
-    <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span>04 / 10</span></div>
+    <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span>05 / 11</span></div>
   </section>
 
   <!-- ============ SOLUTION ============ -->
   <section data-label="Solution" class="teal-slide">
     <div class="band-fill"></div>
-    <div class="slide-pad" style="align-content: center; gap: 56px; padding-bottom: 160px;">
-      <div style="display: grid; gap: 22px; max-width: 1280px;">
-        <p class="kicker rv">Solution</p>
+    <div class="slide-pad" style="align-content: start; gap: 30px; padding: 60px 110px 88px;">
+      <div style="display: grid; gap: 16px; max-width: 1280px;">
+        <p class="kicker rv" style="height: 53px; padding: 48px 0px 0px">SOLUTION</p>
         <h2 class="h-slide rv rv-d1">Mizan adjusts the delivery feed to what your body needs.</h2>
-        <p class="lede rv rv-d1" style="font-size: 26px; opacity: 0.8; max-width: 38em;">Macros shape energy and weight goals. Micronutrients matter for long-term health. Mizan brings both into the ordering flow.</p>
       </div>
       <div class="equation rv rv-d2">
-        <div class="eq-card">
-          <div class="eq-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="3"></rect><path d="M8 8h8M8 12h8M8 16h5"></path></svg>
-          </div>
-          <p class="kicker">What's in the food</p>
-          <h3>Food content</h3>
-          <p style="letter-spacing: -1.1px; line-height: 0.95">Calories, macros, sodium, allergens, ingredients.</p>
-        </div>
-        <div class="eq-op">+</div>
-        <div class="eq-card">
-          <div class="eq-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 C12 3 5.5 10.8 5.5 14.5 a6.5 6.5 0 0 0 13 0 C18.5 10.8 12 3 12 3 Z"></path></svg>
-          </div>
-          <p class="kicker">What you need</p>
-          <h3>Body needs</h3>
-          <p style="letter-spacing: -1.3px; line-height: 1.05">Goals, restrictions and your bloodwork &mdash; iron, B12 and sodium, matched to every meal.</p>
-        </div>
-        <div class="eq-op">=</div>
-        <div class="eq-card result">
-          <div class="eq-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20v-7M12 20V4M19 20v-11"></path></svg>
-          </div>
-          <p class="kicker">The Mizan feed</p>
-          <h3>Meals ranked by fit</h3>
-          <p style="letter-spacing: -1px; line-height: 1.1">The feed puts meals that match the person first, ahead of whatever is promoted.</p>
-        </div>
+  <div class="eq-card"><h3>Food content</h3><div class="radar-block"><div class="radar-meals" style="height: 461px"><figure class="radar-fig"><svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img"><polygon points="80.0,66.0 89.9,70.1 94.0,80.0 89.9,89.9 80.0,94.0 70.1,89.9 66.0,80.0 70.1,70.1" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,52.0 99.8,60.2 108.0,80.0 99.8,99.8 80.0,108.0 60.2,99.8 52.0,80.0 60.2,60.2" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,38.0 109.7,50.3 122.0,80.0 109.7,109.7 80.0,122.0 50.3,109.7 38.0,80.0 50.3,50.3" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,24.0 119.6,40.4 136.0,80.0 119.6,119.6 80.0,136.0 40.4,119.6 24.0,80.0 40.4,40.4" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="80.0" y2="24.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="119.6" y2="40.4" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="136.0" y2="80.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="119.6" y2="119.6" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="80.0" y2="136.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="40.4" y2="119.6" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="24.0" y2="80.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="40.4" y2="40.4" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,29.6 111.7,48.3 108.0,80.0 113.7,113.7 80.0,110.8 64.2,95.8 46.4,80.0 44.4,44.4" fill="rgba(20,112,139,0.20)" stroke="#14708b" stroke-width="2.5"  stroke-linejoin="round"/><circle cx="80.0" cy="29.6" r="2.4" fill="#14708b"/><circle cx="111.7" cy="48.3" r="2.4" fill="#14708b"/><circle cx="108.0" cy="80.0" r="2.4" fill="#14708b"/><circle cx="113.7" cy="113.7" r="2.4" fill="#14708b"/><circle cx="80.0" cy="110.8" r="2.4" fill="#14708b"/><circle cx="64.2" cy="95.8" r="2.4" fill="#14708b"/><circle cx="46.4" cy="80.0" r="2.4" fill="#14708b"/><circle cx="44.4" cy="44.4" r="2.4" fill="#14708b"/></svg><figcaption>Salmon bowl</figcaption></figure><figure class="radar-fig"><svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img"><polygon points="80.0,66.0 89.9,70.1 94.0,80.0 89.9,89.9 80.0,94.0 70.1,89.9 66.0,80.0 70.1,70.1" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,52.0 99.8,60.2 108.0,80.0 99.8,99.8 80.0,108.0 60.2,99.8 52.0,80.0 60.2,60.2" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,38.0 109.7,50.3 122.0,80.0 109.7,109.7 80.0,122.0 50.3,109.7 38.0,80.0 50.3,50.3" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,24.0 119.6,40.4 136.0,80.0 119.6,119.6 80.0,136.0 40.4,119.6 24.0,80.0 40.4,40.4" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="80.0" y2="24.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="119.6" y2="40.4" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="136.0" y2="80.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="119.6" y2="119.6" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="80.0" y2="136.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="40.4" y2="119.6" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="24.0" y2="80.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="40.4" y2="40.4" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,32.4 96.6,63.4 127.6,80.0 95.8,95.8 80.0,105.2 56.2,103.8 63.2,80.0 68.1,68.1" fill="rgba(20,112,139,0.20)" stroke="#14708b" stroke-width="2.5"  stroke-linejoin="round"/><circle cx="80.0" cy="32.4" r="2.4" fill="#14708b"/><circle cx="96.6" cy="63.4" r="2.4" fill="#14708b"/><circle cx="127.6" cy="80.0" r="2.4" fill="#14708b"/><circle cx="95.8" cy="95.8" r="2.4" fill="#14708b"/><circle cx="80.0" cy="105.2" r="2.4" fill="#14708b"/><circle cx="56.2" cy="103.8" r="2.4" fill="#14708b"/><circle cx="63.2" cy="80.0" r="2.4" fill="#14708b"/><circle cx="68.1" cy="68.1" r="2.4" fill="#14708b"/></svg><figcaption>Chicken bagel</figcaption></figure><figure class="radar-fig"><svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img"><polygon points="80.0,66.0 89.9,70.1 94.0,80.0 89.9,89.9 80.0,94.0 70.1,89.9 66.0,80.0 70.1,70.1" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,52.0 99.8,60.2 108.0,80.0 99.8,99.8 80.0,108.0 60.2,99.8 52.0,80.0 60.2,60.2" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,38.0 109.7,50.3 122.0,80.0 109.7,109.7 80.0,122.0 50.3,109.7 38.0,80.0 50.3,50.3" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,24.0 119.6,40.4 136.0,80.0 119.6,119.6 80.0,136.0 40.4,119.6 24.0,80.0 40.4,40.4" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="80.0" y2="24.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="119.6" y2="40.4" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="136.0" y2="80.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="119.6" y2="119.6" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="80.0" y2="136.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="40.4" y2="119.6" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="24.0" y2="80.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="40.4" y2="40.4" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,46.4 113.7,46.3 110.8,80.0 91.9,91.9 80.0,97.9 66.1,93.9 26.8,80.0 64.2,64.2" fill="rgba(20,112,139,0.20)" stroke="#14708b" stroke-width="2.5"  stroke-linejoin="round"/><circle cx="80.0" cy="46.4" r="2.4" fill="#14708b"/><circle cx="113.7" cy="46.3" r="2.4" fill="#14708b"/><circle cx="110.8" cy="80.0" r="2.4" fill="#14708b"/><circle cx="91.9" cy="91.9" r="2.4" fill="#14708b"/><circle cx="80.0" cy="97.9" r="2.4" fill="#14708b"/><circle cx="66.1" cy="93.9" r="2.4" fill="#14708b"/><circle cx="26.8" cy="80.0" r="2.4" fill="#14708b"/><circle cx="64.2" cy="64.2" r="2.4" fill="#14708b"/></svg><figcaption>Lentil salad</figcaption></figure><figure class="radar-fig"><svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img"><polygon points="80.0,66.0 89.9,70.1 94.0,80.0 89.9,89.9 80.0,94.0 70.1,89.9 66.0,80.0 70.1,70.1" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,52.0 99.8,60.2 108.0,80.0 99.8,99.8 80.0,108.0 60.2,99.8 52.0,80.0 60.2,60.2" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,38.0 109.7,50.3 122.0,80.0 109.7,109.7 80.0,122.0 50.3,109.7 38.0,80.0 50.3,50.3" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,24.0 119.6,40.4 136.0,80.0 119.6,119.6 80.0,136.0 40.4,119.6 24.0,80.0 40.4,40.4" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="80.0" y2="24.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="119.6" y2="40.4" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="136.0" y2="80.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="119.6" y2="119.6" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="80.0" y2="136.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="40.4" y2="119.6" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="24.0" y2="80.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="80" y1="80" x2="40.4" y2="40.4" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="80.0,26.8 115.6,44.4 97.9,80.0 111.7,111.7 80.0,123.7 60.2,99.8 59.8,80.0 62.2,62.2" fill="rgba(20,112,139,0.20)" stroke="#14708b" stroke-width="2.5"  stroke-linejoin="round"/><circle cx="80.0" cy="26.8" r="2.4" fill="#14708b"/><circle cx="115.6" cy="44.4" r="2.4" fill="#14708b"/><circle cx="97.9" cy="80.0" r="2.4" fill="#14708b"/><circle cx="111.7" cy="111.7" r="2.4" fill="#14708b"/><circle cx="80.0" cy="123.7" r="2.4" fill="#14708b"/><circle cx="60.2" cy="99.8" r="2.4" fill="#14708b"/><circle cx="59.8" cy="80.0" r="2.4" fill="#14708b"/><circle cx="62.2" cy="62.2" r="2.4" fill="#14708b"/></svg><figcaption>Beef plate</figcaption></figure></div><span class="radar-cap">Every meal has a nutrient profile</span></div></div>
+  <div class="eq-op">+</div>
+  <div class="eq-card"><h3>Body needs</h3><div class="radar-single"><svg viewBox="0 0 384 384" xmlns="http://www.w3.org/2000/svg" role="img"><polygon points="192.0,166.0 210.4,173.6 218.0,192.0 210.4,210.4 192.0,218.0 173.6,210.4 166.0,192.0 173.6,173.6" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="192.0,140.0 228.8,155.2 244.0,192.0 228.8,228.8 192.0,244.0 155.2,228.8 140.0,192.0 155.2,155.2" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="192.0,114.0 247.2,136.8 270.0,192.0 247.2,247.2 192.0,270.0 136.8,247.2 114.0,192.0 136.8,136.8" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="192.0,88.0 265.5,118.5 296.0,192.0 265.5,265.5 192.0,296.0 118.5,265.5 88.0,192.0 118.5,118.5" fill="none" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="192" y1="192" x2="192.0" y2="88.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="192" y1="192" x2="265.5" y2="118.5" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="192" y1="192" x2="296.0" y2="192.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="192" y1="192" x2="265.5" y2="265.5" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="192" y1="192" x2="192.0" y2="296.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="192" y1="192" x2="118.5" y2="265.5" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="192" y1="192" x2="88.0" y2="192.0" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><line x1="192" y1="192" x2="118.5" y2="118.5" stroke="rgba(9,46,58,0.13)" stroke-width="1"/><polygon points="192.0,98.4 254.5,129.5 238.8,192.0 243.5,243.5 192.0,233.6 169.9,214.1 117.1,192.0 136.8,136.8" fill="rgba(194,116,28,0.22)" stroke="#c2741c" stroke-width="3"  stroke-linejoin="round"/><circle cx="192.0" cy="98.4" r="3.5" fill="#c2741c"/><circle cx="254.5" cy="129.5" r="3.5" fill="#c2741c"/><circle cx="238.8" cy="192.0" r="3.5" fill="#c2741c"/><circle cx="243.5" cy="243.5" r="3.5" fill="#c2741c"/><circle cx="192.0" cy="233.6" r="3.5" fill="#c2741c"/><circle cx="169.9" cy="214.1" r="3.5" fill="#c2741c"/><circle cx="117.1" cy="192.0" r="3.5" fill="#c2741c"/><circle cx="136.8" cy="136.8" r="3.5" fill="#c2741c"/><text x="192.0" y="73.4" text-anchor="middle" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="18" font-weight="700" fill="#092e3a" >PROTEIN</text><text x="275.8" y="108.2" text-anchor="start" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#092e3a" opacity="0.85">IRON</text><text x="310.6" y="192.0" text-anchor="start" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="18" font-weight="700" fill="#092e3a" >CARBS</text><text x="275.8" y="275.8" text-anchor="start" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#092e3a" opacity="0.85">B12</text><text x="192.0" y="310.6" text-anchor="middle" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="18" font-weight="700" fill="#092e3a" >FAT</text><text x="108.2" y="275.8" text-anchor="end" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#092e3a" opacity="0.85">SODIUM</text><text x="73.4" y="192.0" text-anchor="end" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="18" font-weight="700" fill="#092e3a" >FIBER</text><text x="108.2" y="108.2" text-anchor="end" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#092e3a" opacity="0.85">VIT D</text></svg><span class="radar-cap">Your bloodwork driven target</span></div></div>
+  <div class="eq-op">=</div>
+  <div class="eq-card result"><h3>SORTED BY OPTIMAL SOLUTION</h3><div class="radar-single"><svg viewBox="0 0 384 384" xmlns="http://www.w3.org/2000/svg" role="img"><polygon points="192.0,166.0 210.4,173.6 218.0,192.0 210.4,210.4 192.0,218.0 173.6,210.4 166.0,192.0 173.6,173.6" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/><polygon points="192.0,140.0 228.8,155.2 244.0,192.0 228.8,228.8 192.0,244.0 155.2,228.8 140.0,192.0 155.2,155.2" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/><polygon points="192.0,114.0 247.2,136.8 270.0,192.0 247.2,247.2 192.0,270.0 136.8,247.2 114.0,192.0 136.8,136.8" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/><polygon points="192.0,88.0 265.5,118.5 296.0,192.0 265.5,265.5 192.0,296.0 118.5,265.5 88.0,192.0 118.5,118.5" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/><line x1="192" y1="192" x2="192.0" y2="88.0" stroke="rgba(255,255,255,0.18)" stroke-width="1"/><line x1="192" y1="192" x2="265.5" y2="118.5" stroke="rgba(255,255,255,0.18)" stroke-width="1"/><line x1="192" y1="192" x2="296.0" y2="192.0" stroke="rgba(255,255,255,0.18)" stroke-width="1"/><line x1="192" y1="192" x2="265.5" y2="265.5" stroke="rgba(255,255,255,0.18)" stroke-width="1"/><line x1="192" y1="192" x2="192.0" y2="296.0" stroke="rgba(255,255,255,0.18)" stroke-width="1"/><line x1="192" y1="192" x2="118.5" y2="265.5" stroke="rgba(255,255,255,0.18)" stroke-width="1"/><line x1="192" y1="192" x2="88.0" y2="192.0" stroke="rgba(255,255,255,0.18)" stroke-width="1"/><line x1="192" y1="192" x2="118.5" y2="118.5" stroke="rgba(255,255,255,0.18)" stroke-width="1"/><polygon points="192.0,98.4 254.5,129.5 238.8,192.0 243.5,243.5 192.0,233.6 169.9,214.1 117.1,192.0 136.8,136.8" fill="none" stroke="#f9e9d4" stroke-width="2.5" stroke-dasharray="5 5" stroke-linejoin="round"/><polygon points="192.0,98.4 250.8,133.2 244.0,192.0 254.5,254.5 192.0,249.2 162.6,221.4 129.6,192.0 125.8,125.8" fill="rgba(194,116,28,0.45)" stroke="#e08a2b" stroke-width="3"  stroke-linejoin="round"/><circle cx="192.0" cy="98.4" r="3.5" fill="#fff4e7"/><circle cx="250.8" cy="133.2" r="3.5" fill="#fff4e7"/><circle cx="244.0" cy="192.0" r="3.5" fill="#fff4e7"/><circle cx="254.5" cy="254.5" r="3.5" fill="#fff4e7"/><circle cx="192.0" cy="249.2" r="3.5" fill="#fff4e7"/><circle cx="162.6" cy="221.4" r="3.5" fill="#fff4e7"/><circle cx="129.6" cy="192.0" r="3.5" fill="#fff4e7"/><circle cx="125.8" cy="125.8" r="3.5" fill="#fff4e7"/><text x="192.0" y="73.4" text-anchor="middle" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="18" font-weight="700" fill="#fff4e7" >PROTEIN</text><text x="275.8" y="108.2" text-anchor="start" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#fff4e7" opacity="0.85">IRON</text><text x="310.6" y="192.0" text-anchor="start" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="18" font-weight="700" fill="#fff4e7" >CARBS</text><text x="275.8" y="275.8" text-anchor="start" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#fff4e7" opacity="0.85">B12</text><text x="192.0" y="310.6" text-anchor="middle" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="18" font-weight="700" fill="#fff4e7" >FAT</text><text x="108.2" y="275.8" text-anchor="end" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#fff4e7" opacity="0.85">SODIUM</text><text x="73.4" y="192.0" text-anchor="end" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="18" font-weight="700" fill="#fff4e7" >FIBER</text><text x="108.2" y="108.2" text-anchor="end" dominant-baseline="middle" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#fff4e7" opacity="0.85">VIT D</text></svg><span class="radar-cap">Salmon bowl &middot; 92% match</span><span class="radar-legend"><i class="lg-need"></i>Body needs <i class="lg-meal"></i>Top meal</span></div></div>
+</div>
       </div>
-      <p class="foot-note rv rv-d3">Mizan is the ordering layer — delivery rides on existing logistics, not our own fleet.</p>
-    </div>
-    <div class="slide-foot on-band"><span class="foot-logo" aria-label="Mizan"></span><span>05 / 10</span></div>
+    <div class="slide-foot on-band"><span class="foot-logo" aria-label="Mizan"></span><span>06 / 11</span></div>
   </section>
 
   <!-- ============ 4 · PRODUCT ============ -->
@@ -214,9 +408,9 @@ nutrition</em>
   <section data-label="How it works" class="cream-slide">
     <div class="hiw-grid">
       <div class="hiw-copy">
-        <p class="kicker rv">How it works</p>
+        <p class="kicker rv">FOOD</p>
         <h2 class="rv rv-d1">The feed does the work for you.</h2>
-        <p class="hiw-sub rv rv-d1">Meals are ranked by nutritional fit &mdash; macros, key micronutrients and allergens on every dish page.</p>
+        <p class="hiw-sub rv rv-d1">A data driven system that reads your numbers and surfaces the optimal meal for your body, so every order moves you toward lasting vitality.</p>
         <div class="hiw-points">
           <div class="point rv rv-d2">
             <span class="num-disc">01</span>
@@ -229,7 +423,7 @@ nutrition</em>
             <span class="num-disc">02</span>
             <div class="point-body">
               <b>Built around your whole week</b>
-              <p>One burger doesn't break a good week. Mizan makes room for it.</p>
+              <p>Plan a weekly cheat meal and the algorithm rebalances your remaining days around it, so one indulgence never knocks you off target.</p>
             </div>
           </div>
           <div class="point rv rv-d4">
@@ -270,10 +464,9 @@ nutrition</em>
           </div>
           <span class="tc-fit">Fits your week</span>
         </div>
-        <p class="tc-foot">2 dishes filtered &mdash; contain shellfish (your allergy)</p>
       </div>
     </div>
-    <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span>06 / 10</span></div>
+    <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span>07 / 11</span></div>
   </section>
 
   <!-- ============ GROCERIES ============ -->
@@ -285,7 +478,7 @@ nutrition</em>
         <div class="point-list">
           <div class="point rv rv-d2">
             <span class="num-disc" style="font-size: 44px">01</span>
-            <p><strong>Aggregate the whole cart.</strong> Mizan totals the nutrition across everything you're about to buy.</p>
+            <p><strong>Aggregate the cart as you go.</strong> Mizan totals the nutrition across everything you're about to buy.</p>
           </div>
           <div class="point rv rv-d3">
             <span class="num-disc" style="background: var(--amber); font-size: 44px">02</span>
@@ -294,25 +487,13 @@ nutrition</em>
         </div>
       </div>
       <div class="grocery-visual rv rv-d2">
-        <div class="basket-card">
-          <div class="bk-head"><span>Your basket</span><span class="bk-count">6 items</span></div>
-          <div class="bk-rows">
-            <div class="bk-row"><span class="bk-thumb"></span><div><b>Chicken breast</b><small>High protein</small></div></div>
-            <div class="bk-row"><span class="bk-thumb"></span><div><b>Greek yogurt &times;4</b><small>Protein, calcium</small></div></div>
-            <div class="bk-row"><span class="bk-thumb"></span><div><b>Sparkling water &times;6</b><small>Hydration</small></div></div>
-          </div>
-        </div>
-        <div class="gap-popup">
-          <p class="gp-title">Missing this week</p>
-          <div class="gp-tags"><span>Fiber</span><span>Omega&#8209;3</span></div>
-          <div class="gp-rec">
-            <div class="gp-photo">product shot</div>
-            <div><b>Add berries &amp; salmon</b><small>Fills ~80% of the gap</small></div>
-          </div>
+        <div class="framed-phone groc-phone">
+          <img class="frame" src="assets/phone-mockup.png" alt="">
+          <img class="shot" src="assets/groceries-shot.png" alt="Mizan grocery basket: 40 items, AED 486, nutrition score 69% with iron and omega-3 gaps flagged" style="border-radius: 50px">
         </div>
       </div>
     </div>
-    <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span>07 / 10</span></div>
+    <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span>08 / 11</span></div>
   </section>
 
   <!-- ============ DEMAND ============ -->
@@ -322,10 +503,10 @@ nutrition</em>
         <div style="display: grid; gap: 22px;">
           <p class="kicker">Demand</p>
           <h2 class="h-slide">The habits are already here.</h2>
-          <p class="demand-note" style="width: 1028px">Abu Dhabi's Healthy Living Strategy makes nutrition policy. Nutri&#8209;Mark grades packaged food, Mizan does it for ordering in.</p>
+          <p class="demand-note" style="width: 1028px">Nutri‑Mark grades packaged food, Mizan does it for ordering in.</p>
         </div>
       </div>
-      <div class="demand-grid rv rv-d1">
+      <div class="demand-grid rv rv-d1" style="grid-template-columns: 1fr 1fr 1fr;">
         <div class="stat-cell">
           <div class="dots"><span class="dot fill"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
           <span class="num">1 in 10</span>
@@ -336,6 +517,11 @@ nutrition</em>
           <span class="num">6 in 10</span>
           <p>order at least <strong>once a week</strong></p>
         </div>
+        <div class="stat-cell" style="--acc: var(--green);">
+          <div class="dots"><span class="dot fill"></span><span class="dot fill"></span><span class="dot fill"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <span class="num">3 in 10</span>
+          <p>already <strong>track calories or macros</strong> in an app</p>
+        </div>
       </div>
       <div class="market-stats rv rv-d2" style="margin-top: 4px;">
         <div><b style="color: var(--teal);">USD 2.5B</b><p>UAE online food delivery spend, 2024</p></div>
@@ -344,7 +530,48 @@ nutrition</em>
       </div>
       <p class="source-note rv rv-d2" style="height: 58px; margin: 7px 0px 0px">Independent sources: UserQ UAE survey 2025; DataReportal 2025; PLOS One UAE menu&#8209;labeling study 2023; UAE National Health Survey; Abu Dhabi Healthy Living Strategy (DoH, 2025). Not Mizan projections.</p>
     </div>
-    <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span>08 / 10</span></div>
+    <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span>09 / 11</span></div>
+  </section>
+
+  <!-- ============ BUSINESS MODEL — UNIT ECONOMICS REFRAME ============ -->
+  <section data-label="Business model (unit economics)">
+    <div class="slide-pad" style="align-content: start; gap: 26px; padding: 56px 110px 0;">
+      <div class="bm2-grid">
+        <div class="bm2-left">
+          <div class="bm2-head">
+            <p class="kicker rv">MARKETPLACE ECONOMICS</p>
+            <h2 class="h-slide rv rv-d1">How we make money.</h2>
+          </div>
+          <p class="ue-lead rv rv-d1">We monetize <span>exactly like leading delivery platforms</span>: commission, delivery and service fees, plus a subscription nutrition layer on top. Because we're AI-powered, we operate far thinner.</p>
+          <div class="ue-ai rv rv-d2">
+            <span class="ue-ai-head">AI automates</span>
+            <ul>
+              <li>Nutrition analysis</li>
+              <li>Menu enrichment</li>
+              <li>Customer support</li>
+            </ul>
+          </div>
+          <div class="ue-out rv rv-d2">
+            <span>Lower operating costs</span>
+            <span>Better margins</span>
+            <span>Better personalization</span>
+          </div>
+        </div>
+        <div class="bm2-right rv rv-d2">
+          <div class="framed-phone bm-phone">
+            <img class="frame" src="assets/phone-mockup.png" alt="">
+            <img class="shot" src="assets/app-receipt.png" alt="Mizan order receipt: 4 items, AED 144 total" style="border-radius: 50px">
+            <div class="rcpt-extra" style="height: 158px; padding: 15px 20px 10px 17px; margin: 32px 0px 0px 3px; width: 350px">
+              <span class="rx-head">What Mizan earns</span>
+              <div class="rx-line"><span>Delivery fee</span><b>AED 12</b></div>
+              <div class="rx-line"><span>Service fee</span><b>AED 6</b></div>
+              <div class="rx-total"><span>Commission</span><b>AED 18</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span>10 / 11</span></div>
   </section>
 
   <!-- ============ WHY NOW ============ -->
@@ -356,37 +583,6 @@ nutrition</em>
   <!-- ============ WHY NOW ============ -->
   
 
-  <!-- ============ TEAM ============ -->
-  <section data-label="Team">
-    <div class="slide-pad" style="align-content: center; gap: 70px; padding-bottom: 170px;">
-      <div style="display: grid; gap: 22px;">
-        <p class="kicker rv">Team</p>
-        <h2 class="h-slide rv rv-d1">Meet the founders.</h2>
-      </div>
-      <div class="team-cards">
-        <div class="card team-card rv rv-d2" style="height: 624px">
-          <span class="avatar"><img src="assets/founder-alex.webp" alt="Alex" style="height: 307px; object-fit: scale-down; width: 319px; padding: 0px 0px 67px; margin: -16px 0px -26px"></span>
-          <h3>Alex L.</h3>
-          <p class="founder-edu">PhD in AI Hardware</p>
-          <div class="uni-logo"><img src="assets/oxford.jpg" alt="University of Oxford" style="height: 101px"></div>
-        </div>
-        <div class="card team-card rv rv-d3">
-          <span class="avatar"><img src="assets/founder-omar.webp" alt="Omar"></span>
-          <h3>Omar Alsaadi</h3>
-          <p class="founder-edu">Math &amp; Statistics Major</p>
-          <div class="uni-logo" style="background-color: rgb(121, 0, 61)"><img src="assets/mcmaster.jpg" alt="McMaster University" style="width: 239px; height: 98px"></div>
-        </div>
-        <div class="card team-card rv rv-d4">
-          <span class="avatar"><img src="assets/founder-saif.webp" alt="Saif" style="object-fit: cover; height: 303px; width: 269px; margin: -36px 30px -36px -45px"></span>
-          <h3>Saif Aldhaheri</h3>
-          <p class="founder-edu">Computer Science Major</p>
-          <div class="uni-logo" style="background-color: rgb(225, 34, 33)"><img src="assets/kings.png" alt="King's College London" style="width: 152px; height: 98px"></div>
-        </div>
-      </div>
-    </div>
-    <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span>09 / 10</span></div>
-  </section>
-
   <!-- ============ 10 · THE ASK ============ -->
   <section data-label="The ask" data-deck-last-visible="">
     <div class="band-fill"></div>
@@ -396,7 +592,6 @@ nutrition</em>
           <p class="kicker rv">The ask</p>
           <h2 class="rv rv-d1">USD 750k</h2>
           <p class="ask-sub rv rv-d1" style="height: 46px; margin: -25px 0px 0px">~AED 2.75M &middot; 12&#8209;month runway</p>
-          <p class="ask-body rv rv-d2" style="line-height: 1.25; letter-spacing: -1.1px">Twelve months to prove the five things a seed round prices: restaurant supply, label quality, demand, repeat use and order economics.</p>
         </div>
         <div class="funds-plain rv rv-d2">
           <p class="fc-head" style="letter-spacing: 1.6px; width: 744px; height: 30px">Use of funds</p>
@@ -409,37 +604,44 @@ nutrition</em>
         </div>
       </div>
       <div class="ask-roadmap">
-        <p class="rm-head rv rv-d2">Roadmap &middot; the first 12 months</p>
-        <div class="rm-row rv rv-d3">
-          <div class="rm-stop">
-            <span class="rm-pip" style="background: var(--cream);"></span>
-            <div class="stage-card">
-              <span class="tag" style="color: var(--teal);">Months 1&ndash;3</span>
-              <b>Build &rarr; launch</b>
-              <p style="line-height: 1.2">V0 app and the nutrition&#8209;label pipeline, live in Dubai by month 3.</p>
+        <p class="rm-head rv rv-d2">How USD 750k gets us to 10,000 users in 12 months</p>
+        <div class="ask-plan rv rv-d3">
+          <div class="plan-stop">
+            <span class="plan-pip" style="background: var(--cream);"></span>
+            <div class="plan-card">
+              <span class="plan-tag" style="color: var(--teal);">Months 1&ndash;2</span>
+              <span class="plan-title">Build &rarr; launch</span>
+              <div class="plan-kpis">
+                <div class="plan-kpi"><b>Mo 2</b><span>Go live</span></div>
+              </div>
             </div>
           </div>
-          <div class="rm-stop">
-            <span class="rm-pip" style="background: var(--amber);"></span>
-            <div class="stage-card">
-              <span class="tag" style="color: var(--amber);">Months 4&ndash;8</span>
-              <b>Grow the marketplace</b>
-              <p style="line-height: 1.1">More restaurants signed; 1,000+ dishes carrying verified nutrition labels.</p>
+          <div class="plan-stop">
+            <span class="plan-pip" style="background: var(--amber);"></span>
+            <div class="plan-card">
+              <span class="plan-tag" style="color: var(--amber);">Months 3&ndash;6</span>
+              <span class="plan-title">Supply + first users</span>
+              <div class="plan-kpis">
+                <div class="plan-kpi"><b>150</b><span>Restaurants</span></div>
+                <div class="plan-kpi"><b>2.5K</b><span>Monthly actives</span></div>
+              </div>
             </div>
           </div>
-          <div class="rm-stop">
-            <span class="rm-pip" style="background: var(--green);"></span>
-            <div class="stage-card">
-              <span class="tag" style="color: var(--green);">Months 9&ndash;12</span>
-              <b>Prove it, raise from strength</b>
-              <p style="line-height: 1.2">Order and repeat&#8209;use data hit seed&#8209;round metrics by month 9 &mdash; we raise while proving. Abu Dhabi next.</p>
+          <div class="plan-stop">
+            <span class="plan-pip" style="background: var(--green);"></span>
+            <div class="plan-card">
+              <span class="plan-tag" style="color: var(--green);">Months 7&ndash;12</span>
+              <span class="plan-title">Scale to 10,000 users</span>
+              <div class="plan-kpis">
+                <div class="plan-kpi"><b>500</b><span>Restaurants</span></div>
+                <div class="plan-kpi"><b>10K</b><span>Monthly actives</span></div>
+              </div>
             </div>
           </div>
         </div>
-        <p class="ask-note rv rv-d4" style="margin: -7px 0px 0px">Commercial metrics start with the first sold unit. We'll report them when they're real, not modelled.</p>
       </div>
     </div>
-    <div class="slide-foot on-band"><span class="foot-logo" aria-label="Mizan"></span><span>10 / 10</span></div>
+    <div class="slide-foot on-band"><span class="foot-logo" aria-label="Mizan"></span><span>11 / 11</span></div>
   </section>
 
 </deck-stage>

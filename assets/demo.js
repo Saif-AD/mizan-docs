@@ -48,7 +48,7 @@
       ],
       meals: [
         { name: "Grilled Beef & Spinach Bowl", why: "High in heme iron, paired with vitamin C-rich peppers for absorption.", boosts: ["Iron +44%", "Vit C +35%"], gains: [44, 35, 22] },
-        { name: "Lentil, Date & Citrus Salad", why: "Plant iron with orange segments — vitamin C triples uptake.", boosts: ["Iron +28%", "Vit C +42%"], gains: [28, 42, 12] },
+        { name: "Lentil, Date & Citrus Salad", why: "Plant iron with orange segments, and vitamin C triples uptake.", boosts: ["Iron +28%", "Vit C +42%"], gains: [28, 42, 12] },
         { name: "Chicken Liver Msakhan Wrap", why: "One of the most iron-dense foods there is, in a familiar wrap.", boosts: ["Iron +58%", "B12 +30%"], gains: [58, 18, 19] }
       ]
     },
@@ -72,7 +72,7 @@
       ],
       meals: [
         { name: "Charred Salmon & Freekeh", why: "Salmon covers vitamin D and omega-3 in a single plate.", boosts: ["Vit D +55%", "Omega-3 +48%"], gains: [55, 48, 21] },
-        { name: "Sardine & Sumac Flatbread", why: "Small fish, big numbers — and ready in the time of a coffee run.", boosts: ["Omega-3 +52%", "Vit D +38%"], gains: [38, 52, 14] },
+        { name: "Sardine & Sumac Flatbread", why: "Small fish, big numbers, ready in the time of a coffee run.", boosts: ["Omega-3 +52%", "Vit D +38%"], gains: [38, 52, 14] },
         { name: "Egg, Avocado & Greens Box", why: "Egg yolks add vitamin D; avocado and greens push fibre up.", boosts: ["Vit D +24%", "Fibre +31%"], gains: [24, 11, 31] }
       ]
     }
@@ -153,7 +153,7 @@
   function step1() {
     stage.innerHTML =
       '<div class="demo-step">' +
-      '<div class="demo-q"><h3>Try it with sample data.</h3><p>Pick a body. We\'ll show you exactly what Mizan would do with it — no sign-up, no typing.</p></div>' +
+      '<div class="demo-q"><h3>Try it with sample data.</h3><p>Pick a body. We\'ll show you exactly what Mizan would do with it. No sign-up, no typing.</p></div>' +
       '<div class="demo-profiles">' +
       PROFILES.map(function (p, i) {
         return (
@@ -179,7 +179,7 @@
     var p = state.profile;
     stage.innerHTML =
       '<div class="demo-step">' +
-      '<div class="demo-q"><h3>Here\'s what this body needs today.</h3><p>Targets built from this profile\'s bloodwork — not a population average.</p></div>' +
+      '<div class="demo-q"><h3>Here\'s what this body needs today.</h3><p>Targets built from this profile\'s bloodwork, not a population average.</p></div>' +
       '<div class="demo-dash">' +
       '<div class="demo-dash-head"><strong>' + p.emoji + " " + esc(p.name) + '</strong><span>Daily targets · from bloodwork</span></div>' +
       '<div class="demo-targets">' +
@@ -210,7 +210,7 @@
     var p = state.profile;
     stage.innerHTML =
       '<div class="demo-step">' +
-      '<div class="demo-q"><h3>Today\'s intake vs. target.</h3><p>It\'s 2pm. Here\'s how far this body has gotten — and where it\'s falling short.</p></div>' +
+      '<div class="demo-q"><h3>Today\'s intake vs. target.</h3><p>It\'s 2pm. Here\'s how far this body has gotten, and where it\'s falling short.</p></div>' +
       '<div class="demo-rings"><div class="demo-rings-row">' +
       p.rings.map(ringHTML).join("") +
       "</div></div>" +
@@ -226,7 +226,7 @@
     var p = state.profile;
     stage.innerHTML =
       '<div class="demo-step">' +
-      '<div class="demo-q"><h3>Mizan recommends — for this body, right now.</h3><p>Each meal is scored against today\'s shortfall. Tap one to order it.</p></div>' +
+      '<div class="demo-q"><h3>Mizan recommends, for this body, right now.</h3><p>Each meal is scored against today\'s shortfall. Tap one to order it.</p></div>' +
       '<div class="demo-meals">' +
       p.meals.map(function (m, i) {
         return (
@@ -255,7 +255,7 @@
     stage.innerHTML =
       '<div class="demo-step">' +
       '<div class="demo-payoff">' +
-      '<h3 class="h-card">' + esc(m.name) + " — ordered. Watch the gaps close.</h3>" +
+      '<h3 class="h-card">' + esc(m.name) + " is now ordered. Watch the gaps close.</h3>" +
       "</div>" +
       '<div class="demo-rings"><div class="demo-rings-row">' +
       p.rings.map(ringHTML).join("") +
@@ -263,13 +263,13 @@
       '<div class="demo-payoff"><p><strong>That\'s the whole loop.</strong> Measure → target → recommend → deliver. Every day, from your own bloodwork.</p></div>' +
       '<div class="demo-cta">' +
       '<h3 class="h-card">This was demo data. Your numbers are different.</h3>' +
-      "<p>Get your real targets — download the app and connect your bloodwork in minutes.</p>" +
+      "<p>Get your real targets. Download the app and connect your bloodwork in minutes.</p>" +
       '<div class="badges">' +
       '<a class="badge-store on-teal" href="#download"><span class="glyph">A</span><span><small>Coming soon on the</small><strong>App Store</strong></span></a>' +
       '<a class="badge-store on-teal" href="#download"><span class="glyph">G</span><span><small>Coming soon on</small><strong>Google Play</strong></span></a>' +
       "</div>" +
       (state.emailDone
-        ? '<span class="demo-email-done">You\'re on the list — we\'ll email you at launch ✓</span>'
+        ? '<span class="demo-email-done">You\'re on the list, and we\'ll email you at launch ✓</span>'
         : '<form class="demo-email"><input type="email" placeholder="Or leave your email for launch day" aria-label="Email" required><button type="submit">Notify me</button></form>') +
       "</div></div>";
     stage.querySelectorAll(".dring").forEach(function (el, i) {
@@ -282,7 +282,7 @@
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         state.emailDone = true;
-        form.outerHTML = '<span class="demo-email-done">You\'re on the list — we\'ll email you at launch ✓</span>';
+        form.outerHTML = '<span class="demo-email-done">You\'re on the list, and we\'ll email you at launch ✓</span>';
       });
     }
   }
