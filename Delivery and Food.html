@@ -3,12 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mizan — Delivery &amp; food</title>
+<title>Mizan | Delivery &amp; food</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/mizan.css">
 <style>
+/* Edge-to-edge teal menu strip (matches Home) */
+body { --page-inset: clamp(12px, 1.8vw, 22px); }
+.nav { background: var(--teal); }
+.nav.scrolled { box-shadow: 0 8px 24px rgba(9, 30, 40, 0.25); }
+.nav-inner { max-width: none; padding-left: var(--page-inset); padding-right: var(--page-inset); }
+.nav-logo { color: var(--cream); }
+.nav-links a { color: var(--cream); }
+.nav-links a::after { background: var(--cream); }
+.nav-cta { background: var(--cream); color: var(--teal-deep); }
+.nav-cta:hover { background: var(--cream-card); }
+.nav-burger span { background: var(--cream); }
+.nav-drawer { background: var(--teal); }
+.nav-drawer a { color: var(--cream); border-bottom-color: rgba(255, 244, 231, 0.2); }
 .page-hero { padding: clamp(48px, 8vw, 96px) clamp(24px, 5vw, 72px); display: grid; gap: 18px; }
 .page-hero .h-hero { color: var(--cream); max-width: 800px; }
 .page-hero .lede { max-width: 560px; opacity: 0.9; }
@@ -52,7 +65,7 @@
   align-items: center;
 }
 .meal-feature + .meal-feature { margin-top: 22px; }
-.meal-feature img { width: 100%; height: clamp(220px, 34vw, 300px); display: block; object-fit: cover; border-radius: 16px; }
+.meal-feature image-slot { width: 100%; height: clamp(220px, 34vw, 300px); display: block; }
 .meal-feature .mf-body { display: grid; gap: 14px; }
 .meal-feature h3 { font-size: clamp(1.2rem, 2.8vw, 1.6rem); }
 .meal-feature .mf-why {
@@ -83,7 +96,7 @@
 .mf-stat.warn { color: var(--amber); border-color: rgba(194, 116, 28, 0.4); }
 @media (min-width: 860px) {
   .meal-feature { grid-template-columns: 1fr 1.1fr; }
-  .meal-feature.flip img { order: 2; }
+  .meal-feature.flip image-slot { order: 2; }
 }
 
 /* Partners */
@@ -128,9 +141,9 @@
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="nav-logo" href="index.html" aria-label="Mizan home" data-logo></a>
+    <a class="nav-logo" href="Home.html" aria-label="Mizan home" data-logo></a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="Home.html">Home</a></li>
       <li><a href="How It Works.html">How it works</a></li>
       <li><a href="Delivery and Food.html" aria-current="page">Delivery &amp; food</a></li>
       <li><a href="#download">Get the app</a></li>
@@ -138,7 +151,7 @@
     <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <nav class="nav-drawer">
-    <a href="index.html">Home</a>
+    <a href="Home.html">Home</a>
     <a href="How It Works.html">How it works</a>
     <a href="Delivery and Food.html">Delivery &amp; food</a>
     <a href="#download">Get the app</a>
@@ -151,7 +164,7 @@
   <div class="page-hero">
     <p class="kicker" style="color: var(--teal-soft);">Delivery &amp; food</p>
     <h1 class="h-hero">Recommendations you can actually eat.</h1>
-    <p class="lede">Every dish Mizan suggests is a real meal from our kitchen and partners — cooked, delivered, and logged for you.</p>
+    <p class="lede">Every dish Mizan suggests is a real meal from our kitchen and partners, cooked, delivered, and logged for you.</p>
   </div>
 </section>
 
@@ -166,7 +179,7 @@
       <div class="dl-step rv">
         <span class="dl-num">1</span>
         <h3>Tap a recommendation</h3>
-        <p>Every suggested dish shows what it closes — "iron +44%" — before you order. No menus to dig through.</p>
+        <p>Every suggested dish shows what it closes, like "iron +44%", before you order. No menus to dig through.</p>
       </div>
       <div class="dl-step rv rv-d1">
         <span class="dl-num">2</span>
@@ -191,7 +204,7 @@
     </div>
 
     <article class="meal-feature rv">
-      <img id="food-meal-1" src="uploads/139184-food-plate-healthy-free-photo.png" alt="Grilled beef and spinach bowl">
+      <image-slot id="food-meal-1" shape="rounded" radius="16" placeholder="Photo: grilled beef &amp; spinach bowl"></image-slot>
       <div class="mf-body">
         <h3>Grilled Beef &amp; Spinach Bowl</h3>
         <div class="mf-stats">
@@ -202,13 +215,13 @@
         </div>
         <div class="mf-why">
           <small>Why this meal</small>
-          <p>Recommended when iron runs low. Beef brings heme iron — the kind your body absorbs best — and the roasted peppers add vitamin C, which can triple that absorption. One bowl, most of a day's iron.</p>
+          <p>Recommended when iron runs low. Beef brings heme iron, the kind your body absorbs best, and the roasted peppers add vitamin C, which can triple that absorption. One bowl, most of a day's iron.</p>
         </div>
       </div>
     </article>
 
     <article class="meal-feature flip rv">
-      <img id="food-meal-2" src="uploads/139180-food-plate-fish-download-hd.png" alt="Charred salmon and freekeh plate">
+      <image-slot id="food-meal-2" shape="rounded" radius="16" placeholder="Photo: charred salmon &amp; freekeh"></image-slot>
       <div class="mf-body">
         <h3>Charred Salmon &amp; Freekeh</h3>
         <div class="mf-stats">
@@ -219,13 +232,13 @@
         </div>
         <div class="mf-why">
           <small>Why this meal</small>
-          <p>Built for the most common gap we see in the UAE: vitamin D. Oily fish is one of the only foods that meaningfully moves it — and the omega-3s come along for free. Freekeh adds slow-release carbs and fibre.</p>
+          <p>Built for the most common gap we see in the UAE: vitamin D. Oily fish is one of the only foods that meaningfully moves it, and the omega-3s come along for free. Freekeh adds slow-release carbs and fibre.</p>
         </div>
       </div>
     </article>
 
     <article class="meal-feature rv">
-      <img id="food-meal-3" src="uploads/139399-food-nutrition-top-view-plate.png" alt="Lentil, date and halloumi salad">
+      <image-slot id="food-meal-3" shape="rounded" radius="16" placeholder="Photo: lentil, date &amp; halloumi salad"></image-slot>
       <div class="mf-body">
         <h3>Lentil, Date &amp; Halloumi Salad</h3>
         <div class="mf-stats">
@@ -236,7 +249,7 @@
         </div>
         <div class="mf-why">
           <small>Why this meal</small>
-          <p>For plant-forward days and B-vitamin gaps. Lentils carry folate and plant iron, halloumi covers calcium, and dates bring the sweetness without the crash. The lemon dressing isn't decoration — it's there for absorption.</p>
+          <p>For plant-forward days and B-vitamin gaps. Lentils carry folate and plant iron, halloumi covers calcium, and dates bring the sweetness without the crash. The lemon dressing isn't decoration. It's there for absorption.</p>
         </div>
       </div>
     </article>
@@ -249,7 +262,7 @@
     <div class="section-head rv">
       <p class="kicker">Partner restaurants</p>
       <h2 class="h-sect">Cooked with partners you already love.</h2>
-      <span class="placeholder-note">placeholder — partnerships being announced at launch</span>
+      <span class="placeholder-note">placeholder: partnerships being announced at launch</span>
     </div>
     <div class="partner-grid rv">
       <div class="ph"><code>partner logo</code></div>
@@ -272,7 +285,7 @@
       <h2 class="h-sect">Now delivering across the UAE.</h2>
     </div>
     <div class="coverage-wrap">
-      <div class="ph coverage-map rv"><code>UAE coverage map — drop final map artwork here</code></div>
+      <div class="ph coverage-map rv"><code>UAE coverage map: drop final map artwork here</code></div>
       <div class="coverage-cities">
         <div class="city-row rv"><span class="pulse-dot"></span>Dubai<small>At launch</small></div>
         <div class="city-row rv rv-d1"><span class="pulse-dot"></span>Abu Dhabi<small>At launch</small></div>
@@ -311,13 +324,13 @@
     </form>
   </div>
   <div class="wrap footer-main">
-    <a class="footer-logo" href="index.html" aria-label="Mizan home" data-logo></a>
+    <a class="footer-logo" href="Home.html" aria-label="Mizan home" data-logo></a>
     <div class="footer-right">
     <div class="footer-cols">
       <div class="footer-col">
         <h4>Pages</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="Home.html">Home</a></li>
           <li><a href="How It Works.html">How it works</a></li>
           <li><a href="Delivery and Food.html">Delivery &amp; food</a></li>
           <li><a href="#download">Get the app</a></li>

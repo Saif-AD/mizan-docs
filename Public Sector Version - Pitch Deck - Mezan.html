@@ -3,7 +3,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mizan — Pre-Seed Deck</title>
+<title>Mizan Pre-Seed Deck</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -11,6 +11,32 @@
 <style>
   html, body { margin: 0; background: #000; }
   deck-stage:not(:defined) { visibility: hidden; }
+
+/* ---- Team (founders) — restructured ---- */
+.team-cards{display:grid !important;grid-template-columns:repeat(3,1fr);gap:26px;align-items:stretch;}
+.team-card{min-height:0 !important;padding:16px 40px 14px !important;display:grid;gap:0;justify-items:center;align-content:start;text-align:center;}
+.team-card .avatar{width:224px !important;height:224px !important;border-radius:50%;overflow:hidden;padding:0;border:6px solid var(--teal);box-shadow:var(--shadow-card);margin-bottom:6px;background:var(--cream-tint);}
+.team-card .avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+.team-card h3{font-size:46px !important;line-height:0.95;text-transform:uppercase;letter-spacing:-0.5px;margin-top:20px;margin-bottom:2px;}
+.tm-rows{display:grid;gap:10px;width:100%;text-align:center;padding:0 6px 0;}
+.tm-sec{display:grid;gap:3px;margin:0;padding:0;border:none;justify-items:center;}
+.tm-sec::before{content:"";width:28px;height:3px;border-radius:2px;background:var(--teal);margin-bottom:0px;}
+.team-subtitle{font-family:var(--display);font-weight:700;font-size:48px;color:var(--teal);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:3px;line-height:1.12;margin-top:18px;}
+.tm-label{display:block !important;font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:0.13em;line-height:1;text-transform:uppercase;color:var(--teal);opacity:0.92;}
+.tm-text{font-size:27px;line-height:1.12;opacity:0.92;margin:0;}
+.tm-text::before,.tm-sec p::before{display:none !important;}
+.tm-text b{font-weight:700;}
+.tm-text .sub{display:block;font-size:21px;opacity:0.52;margin-top:3px;font-weight:500;}
+.team-card .uni-logo{margin:0 !important;height:84px !important;border:3px solid var(--teal);border-radius:999px;overflow:hidden;display:grid;place-items:center;background:var(--cream-card);}
+.team-card .uni-logo img{display:block;object-fit:contain;}
+.tm-logos{display:flex;gap:16px;width:100%;justify-content:center;align-items:center;margin-top:8px;}
+.tm-logos .uni-logo:not(.exp-logo){flex:0 0 200px;width:200px !important;}
+.team-card .exp-logo{flex:0 0 84px !important;width:84px !important;height:84px !important;border-radius:50% !important;}
+.team-stats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--cream-card);border-radius:var(--rad-md);box-shadow:var(--shadow-card);padding:16px 24px;}
+.team-stats > div{display:grid;gap:5px;align-content:center;justify-items:center;padding:4px 24px;text-align:center;}
+.team-stats > div + div{border-left:1.5px solid rgba(9,46,58,0.14);}
+.team-stats b{font-family:var(--display);font-weight:700;font-size:50px;line-height:0.9;color:var(--teal);}
+.team-stats .lbl{font-size:22px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--teal-ink);opacity:0.72;}
 </style>
 <link id="gfont-Inter" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap">
 </head>
@@ -21,7 +47,7 @@
   <!-- ============ 1 · TITLE ============ -->
   <section data-label="Title" class="title-slide">
     <div class="hero-card rv">
-      <img class="hero-photo" src="assets/hero-home.png" alt="Ordering on Mizan — the feed ranked for your goals">
+      <img class="hero-photo" src="assets/hero-home.png" alt="Ordering on Mizan, the feed ranked for your goals">
       <svg class="hero-frame-svg" viewBox="0 0 1876 1036" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <path fill-rule="evenodd" d="M 92 40 H 1784 A 52 52 0 0 1 1836 92 V 944 A 52 52 0 0 1 1784 996 H 92 A 52 52 0 0 1 40 944 V 92 A 52 52 0 0 1 92 40 Z M 108 86 H 1486 A 34 34 0 0 1 1520 120 V 126 A 44 44 0 0 0 1564 170 H 1756 A 34 34 0 0 1 1790 204 V 928 A 22 22 0 0 1 1768 950 H 984 A 34 34 0 0 1 950 916 V 728 A 44 44 0 0 0 906 684 H 120 A 34 34 0 0 1 86 650 V 108 A 22 22 0 0 1 108 86 Z"></path>
       </svg>
@@ -50,7 +76,7 @@
         <div class="point-list">
           <div class="point rv rv-d2">
             <span class="num-disc" style="font-size: 44px">01</span>
-            <p style="line-height: 1.05; letter-spacing: -0.6px"><strong>The apps don't have the nutritional data.</strong> Restaurant nutrition is genuinely hard to pin down: recipes, portions and prep all vary. So menus show price, speed and photos — nothing about what's inside.</p>
+            <p style="line-height: 1.05; letter-spacing: -0.6px"><strong>The apps don't have the nutritional data.</strong> Restaurant nutrition is genuinely hard to pin down: recipes, portions and prep all vary. So menus show price, speed and photos, with nothing about what's inside.</p>
           </div>
           <div class="point rv rv-d3">
             <span class="num-disc" style="background: var(--amber); font-size: 44px">02</span>
@@ -62,7 +88,7 @@
         <b class="compare-name" style="height: 25px">Deliveroo</b>
         <div class="framed-phone compare-phone">
           <img class="frame" src="assets/phone-mockup.png" alt="">
-          <img class="shot" src="assets/competitor-dish.png" alt="A competitor delivery app dish page — no nutrition information shown">
+          <img class="shot" src="assets/competitor-dish.png" alt="A competitor delivery app dish page with no nutrition information shown">
           <div class="missing-overlay">
             <span class="compare-callout">Calories<b>?</b></span>
             <span class="compare-callout">Protein<b>?</b></span>
@@ -153,7 +179,7 @@ nutrition</em>
           <small>Filtered for your health</small>
           <div class="framed-phone flow-phone">
             <img class="frame" src="assets/phone-mockup.png" alt="">
-            <img class="shot" src="uploads/Picture2-193479fd.png" alt="Mizan feed — meals ranked for your goals">
+            <img class="shot" src="uploads/Picture2-193479fd.png" alt="Mizan feed of meals ranked for your goals">
           </div>
         </div>
         <div class="flow-stage node">
@@ -202,7 +228,7 @@ nutrition</em>
           <p style="letter-spacing: -1px; line-height: 1.1">The feed puts meals that match the person first, ahead of whatever is promoted.</p>
         </div>
       </div>
-      <p class="foot-note rv rv-d3">Mizan is the ordering layer — delivery rides on existing logistics, not our own fleet.</p>
+      <p class="foot-note rv rv-d3">Mizan is the ordering layer, so delivery rides on existing logistics, not our own fleet.</p>
     </div>
     <div class="slide-foot on-band"><span class="foot-logo" aria-label="Mizan"></span><span>05 / 12</span></div>
   </section>
@@ -394,30 +420,39 @@ nutrition</em>
 
   <!-- ============ TEAM ============ -->
   <section data-label="Team">
-    <div class="slide-pad" style="align-content: center; gap: 70px; padding-bottom: 170px;">
-      <div style="display: grid; gap: 22px;">
-        <p class="kicker rv">Team</p>
-        <h2 class="h-slide rv rv-d1">Meet the founders.</h2>
+    <div class="slide-pad" style="align-content: start; gap: 14px; padding: 48px 110px 0;">
+      <div style="display: grid; gap: 10px;">
+        <p class="kicker rv" style="height: 19px">Team</p>
+        <h2 class="h-slide rv rv-d1" style="height: 48px; padding: 0px 0px 5px">Meet the founders.</h2>
+        <p class="team-subtitle rv rv-d1" style="margin: 33px 0px 0px; padding: 0px; font-weight: 500; font-size: 71px; letter-spacing: -1.7px; line-height: 0.9"><b>5,000+</b> orders between us. Not one app ever got it right.</p>
       </div>
-      <div class="team-cards">
-        <div class="card team-card rv rv-d2" style="height: 624px">
-          <span class="avatar"><img src="assets/founder-alex.webp" alt="Alex" style="height: 307px; object-fit: scale-down; width: 319px; padding: 0px 0px 67px; margin: -16px 0px -26px"></span>
+      <div class="team-cards rv rv-d2" style="height: 519px; padding: 0px; margin: 23px 0px 0px">
+        <div class="card team-card">
+          <span class="avatar" style="height: 236px; margin: 23px 0px 6px"><img src="assets/founder-alex.webp" alt="Alex" style="object-position: 38% 40%; transform: scale(1.9); transform-origin: 38% 40%; width: 287px; height: 186px; margin: -72px 0px 0px"></span>
           <h3>Alex L.</h3>
-          <p class="founder-edu">PhD in AI Hardware</p>
-          <div class="uni-logo"><img src="assets/oxford.jpg" alt="University of Oxford" style="height: 101px"></div>
+          <div class="tm-rows">
+            <div class="tm-sec" style="height: 178px"><p class="tm-text" style="height: 0px"><b>PhD in AI Hardware</b></p><div class="tm-logos" style="height: 78px; margin: 30px 0px 0px"><div class="uni-logo" style="background-color: rgb(1, 33, 72)"><img src="assets/oxford.jpg" alt="University of Oxford" style="height: 101px; width: 194px; margin: -11px 0px 0px"></div><div class="uni-logo exp-logo" style="background-color: rgb(0, 51, 160)"><img src="assets/cern-logo.png" alt="CERN" style="height:50px"></div></div></div>
+          </div>
         </div>
-        <div class="card team-card rv rv-d3">
-          <span class="avatar"><img src="assets/founder-omar.webp" alt="Omar"></span>
+        <div class="card team-card">
+          <span class="avatar" style="height: 236px; margin: 23px 0px 6px"><img src="assets/founder-omar.webp" alt="Omar" style="object-position: 50% 46%"></span>
           <h3>Omar Alsaadi</h3>
-          <p class="founder-edu">Math &amp; Statistics Major</p>
-          <div class="uni-logo" style="background-color: rgb(121, 0, 61)"><img src="assets/mcmaster.jpg" alt="McMaster University" style="width: 239px; height: 98px"></div>
+          <div class="tm-rows">
+            <div class="tm-sec" style="height: 178px"><p class="tm-text" style="height: 0px"><b>Math &amp; Statistics Major</b></p><div class="tm-logos" style="height: 78px; margin: 30px 0px 0px"><div class="uni-logo" style="background-color: rgb(121, 0, 61)"><img src="assets/mcmaster.jpg" alt="McMaster University" style="height: 79px; width: 158px; object-fit: cover"></div><div class="uni-logo exp-logo" style="background-color: #ffffff"><img src="assets/g42-logo.png" alt="G42" style="height:52px"></div></div></div>
+          </div>
         </div>
-        <div class="card team-card rv rv-d4">
-          <span class="avatar"><img src="assets/founder-saif.webp" alt="Saif"></span>
+        <div class="card team-card">
+          <span class="avatar" style="height: 236px; margin: 23px 0px 6px"><img src="assets/founder-saif-paris.jpg" alt="Saif" style="object-position: 50% 24%; transform: scale(1.7); transform-origin: 50% 24%; height: 275px; padding: 0px; margin: -100px -12px 160px -21px; width: 235px"></span>
           <h3>Saif Aldhaheri</h3>
-          <p class="founder-edu">Computer Science Major</p>
-          <div class="uni-logo" style="background-color: rgb(225, 34, 33)"><img src="assets/kings.png" alt="King's College London" style="width: 152px; height: 98px"></div>
+          <div class="tm-rows">
+            <div class="tm-sec" style="height: 178px"><p class="tm-text" style="height: 0px"><b>Computer Science Major</b></p><div class="tm-logos" style="height: 78px; margin: 30px 0px 0px"><div class="uni-logo" style="background-color: rgb(225, 34, 33)"><img src="assets/kings.png" alt="King&#39;s College London" style="width:124px;height:80px"></div><div class="uni-logo exp-logo" style="background-color: #ffffff"><img src="assets/g42-logo.png" alt="G42" style="height:52px"></div></div></div>
+          </div>
         </div>
+      </div>
+      <div class="team-stats rv rv-d3" style="margin: 0px 0px 28px">
+        <div><b>10K</b><span class="lbl">Meals Tracked</span></div>
+        <div style="width: 575px"><b>5K+</b><span class="lbl">Orders Placed</span></div>
+        <div><b>2</b><span class="lbl">Companies Started</span></div>
       </div>
     </div>
     <div class="slide-foot"><span class="foot-logo" aria-label="Mizan"></span><span>11 / 12</span></div>

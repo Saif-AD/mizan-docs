@@ -3,12 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mizan — How it works &amp; the science</title>
+<title>Mizan | How it works &amp; the science</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/mizan.css">
 <style>
+/* Edge-to-edge teal menu strip (matches Home) */
+body { --page-inset: clamp(12px, 1.8vw, 22px); }
+.nav { background: var(--teal); }
+.nav.scrolled { box-shadow: 0 8px 24px rgba(9, 30, 40, 0.25); }
+.nav-inner { max-width: none; padding-left: var(--page-inset); padding-right: var(--page-inset); }
+.nav-logo { color: var(--cream); }
+.nav-links a { color: var(--cream); }
+.nav-links a::after { background: var(--cream); }
+.nav-cta { background: var(--cream); color: var(--teal-deep); }
+.nav-cta:hover { background: var(--cream-card); }
+.nav-burger span { background: var(--cream); }
+.nav-drawer { background: var(--teal); }
+.nav-drawer a { color: var(--cream); border-bottom-color: rgba(255, 244, 231, 0.2); }
 /* Page header */
 .page-hero { padding: clamp(48px, 8vw, 96px) clamp(24px, 5vw, 72px); display: grid; gap: 18px; }
 .page-hero .h-hero { color: var(--cream); max-width: 800px; }
@@ -109,9 +122,9 @@
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="nav-logo" href="index.html" aria-label="Mizan home" data-logo></a>
+    <a class="nav-logo" href="Home.html" aria-label="Mizan home" data-logo></a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="Home.html">Home</a></li>
       <li><a href="How It Works.html" aria-current="page">How it works</a></li>
       <li><a href="Delivery and Food.html">Delivery &amp; food</a></li>
       <li><a href="#download">Get the app</a></li>
@@ -119,7 +132,7 @@
     <button class="nav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <nav class="nav-drawer">
-    <a href="index.html">Home</a>
+    <a href="Home.html">Home</a>
     <a href="How It Works.html">How it works</a>
     <a href="Delivery and Food.html">Delivery &amp; food</a>
     <a href="#download">Get the app</a>
@@ -148,21 +161,21 @@
         <span class="loop-num">1</span>
         <div>
           <h3>Connect your bloodwork</h3>
-          <p>Link your verified lab results through our secured UAE government integration, or upload results from your clinic. Mizan reads the markers that matter for nutrition — iron studies, vitamin D, B12, folate, lipids and more — directly from the source, so there's no typing and no transcription errors. A test from the last 12 months is enough to start.</p>
+          <p>Link your verified lab results through our secured UAE government integration, or upload results from your clinic. Mizan reads the markers that matter for nutrition, like iron studies, vitamin D, B12, folate and lipids, directly from the source, so there's no typing and no transcription errors. A test from the last 12 months is enough to start.</p>
         </div>
       </div>
       <div class="loop-item rv">
         <span class="loop-num">2</span>
         <div>
           <h3>Get personalized targets</h3>
-          <p>Generic guidelines assume an average body. Yours isn't average. Mizan converts each marker into a daily intake target: low ferritin raises your iron goal, low 25(OH)D raises vitamin D, your training load and body composition shape protein. The result is a daily plan of macros and micros that belongs to exactly one person — you.</p>
+          <p>Generic guidelines assume an average body. Yours isn't average. Mizan converts each marker into a daily intake target: low ferritin raises your iron goal, low 25(OH)D raises vitamin D, your training load and body composition shape protein. The result is a daily plan of macros and micros that belongs to exactly one person: you.</p>
         </div>
       </div>
       <div class="loop-item rv">
         <span class="loop-num">3</span>
         <div>
           <h3>See live recommendations</h3>
-          <p>As you log meals, Mizan tracks what's still missing today and scores real dishes against your shortfall. It doesn't just say "eat more iron" — it shows the beef and spinach bowl that closes the gap, and pairs it with vitamin C so your body actually absorbs it. Recommendations update with every meal you eat.</p>
+          <p>As you log meals, Mizan tracks what's still missing today and scores real dishes against your shortfall. It doesn't just say "eat more iron". It shows the beef and spinach bowl that closes the gap, and pairs it with vitamin C so your body actually absorbs it. Recommendations update with every meal you eat.</p>
         </div>
       </div>
       <div class="loop-item rv">
@@ -183,7 +196,7 @@
       <p class="kicker">From bloodwork to targets</p>
       <h2 class="h-sect">How a marker becomes a meal.</h2>
       <p class="lede muted">A few examples of how your results translate into daily goals.</p>
-      <span class="placeholder-note">placeholder — exact thresholds under clinical review</span>
+      <span class="placeholder-note">placeholder: exact thresholds under clinical review</span>
     </div>
     <div class="marker-map">
       <div class="marker-row rv">
@@ -199,12 +212,12 @@
       <div class="marker-row rv">
         <span class="mk-from">B12 &amp; folate</span>
         <span class="mk-arrow">→</span>
-        <span class="mk-to">Borderline B12 — common with plant-forward diets — lifts your B12 goal and surfaces the foods that cover it.</span>
+        <span class="mk-to">Borderline B12, common with plant-forward diets, lifts your B12 goal and surfaces the foods that cover it.</span>
       </div>
       <div class="marker-row rv">
         <span class="mk-from">Lipid profile</span>
         <span class="mk-arrow">→</span>
-        <span class="mk-to">Your cholesterol pattern shapes the balance of fats in your plan — more omega-3s, fewer saturated-fat-heavy dishes.</span>
+        <span class="mk-to">Your cholesterol pattern shapes the balance of fats in your plan: more omega-3s, fewer saturated-fat-heavy dishes.</span>
       </div>
       <div class="marker-row rv">
         <span class="mk-from">HbA1c &amp; fasting glucose</span>
@@ -212,7 +225,7 @@
         <span class="mk-to">Trending glucose markers shift your carbohydrate targets toward higher-fibre, slower-release sources.</span>
       </div>
     </div>
-    <p class="rv" style="margin-top: 24px; font-size: 0.85rem; opacity: 0.7; max-width: 640px;">Mizan supports your nutrition decisions — it doesn't diagnose or treat. Out-of-range results always come with a prompt to speak to your doctor.</p>
+    <p class="rv" style="margin-top: 24px; font-size: 0.85rem; opacity: 0.7; max-width: 640px;">Mizan supports your nutrition decisions. It doesn't diagnose or treat. Out-of-range results always come with a prompt to speak to your doctor.</p>
   </div>
 </section>
 
@@ -222,8 +235,8 @@
     <div class="section-head rv">
       <p class="kicker">The UAE government integration</p>
       <h2 class="h-sect">Verified at the source. Limited by design.</h2>
-      <p class="lede muted">Mizan connects to the UAE's secured health-data platform so your results arrive verified — exactly as the lab reported them.</p>
-      <span class="placeholder-note">placeholder — integration specifics being finalized</span>
+      <p class="lede muted">Mizan connects to the UAE's secured health-data platform so your results arrive verified, exactly as the lab reported them.</p>
+      <span class="placeholder-note">placeholder: integration specifics being finalized</span>
     </div>
     <div class="gov-grid">
       <div class="gov-card does rv">
@@ -231,14 +244,14 @@
         <ul>
           <li>Retrieves your lab results, with your explicit consent, each time you ask it to.</li>
           <li>Verifies results came from an accredited UAE laboratory.</li>
-          <li>Confirms your identity through the official UAE Pass flow — you log in with them, not with us.</li>
+          <li>Confirms your identity through the official UAE Pass flow, so you log in with them, not with us.</li>
         </ul>
       </div>
       <div class="gov-card doesnt rv rv-d1">
         <h3 class="h-card">What it never accesses</h3>
         <ul>
           <li>Your medical history, diagnoses, prescriptions or visit notes.</li>
-          <li>Your Emirates ID credentials — we never see your login.</li>
+          <li>Your Emirates ID credentials. We never see your login.</li>
           <li>Anything without a fresh, revocable consent from you.</li>
         </ul>
       </div>
@@ -257,12 +270,12 @@
       <div class="privacy-card rv">
         <span class="pv-mark">🔒</span>
         <h3>Encrypted, twice</h3>
-        <p>Results are encrypted in transit (TLS 1.3) and at rest (AES-256) — the same standards used in banking. Bloodwork values are stored separately from your identity.</p>
+        <p>Results are encrypted in transit (TLS 1.3) and at rest (AES-256), the same standards used in banking. Bloodwork values are stored separately from your identity.</p>
       </div>
       <div class="privacy-card rv rv-d1">
         <span class="pv-mark">⏻</span>
         <h3>You hold the switch</h3>
-        <p>Consent is granular and revocable. Disconnect the government integration, delete a test, or erase your account and all health data — each takes one tap, and deletion is permanent.</p>
+        <p>Consent is granular and revocable. Disconnect the government integration, delete a test, or erase your account and all health data. Each takes one tap, and deletion is permanent.</p>
       </div>
       <div class="privacy-card rv rv-d2">
         <span class="pv-mark">✕</span>
@@ -300,13 +313,13 @@
     </form>
   </div>
   <div class="wrap footer-main">
-    <a class="footer-logo" href="index.html" aria-label="Mizan home" data-logo></a>
+    <a class="footer-logo" href="Home.html" aria-label="Mizan home" data-logo></a>
     <div class="footer-right">
     <div class="footer-cols">
       <div class="footer-col">
         <h4>Pages</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="Home.html">Home</a></li>
           <li><a href="How It Works.html">How it works</a></li>
           <li><a href="Delivery and Food.html">Delivery &amp; food</a></li>
           <li><a href="#download">Get the app</a></li>
